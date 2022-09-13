@@ -1,0 +1,40 @@
+<%- include('partials/header') -%>
+
+<!-- name, image, and info -->
+<section class="info-container container">
+    <div>
+        <h1><%= recipe.recipeName %></h1>
+        <img class='img-thumbnail' src="<%= recipe.image %>" alt="<%= recipe.name %>">
+    </div>
+    <div>
+        <ul>
+            <li>Prep Time: <%= recipe.prepTime %></li>
+            <li>Bake/Cook: <%= recipe.cookTime %></li>
+            <li>Total Time: <%= recipe.totalTime %></li>
+        </ul>
+    </div>
+</section>
+
+<section class="instructions-container container">
+    <!-- ingredients loop-->
+    <span><strong>Ingredients</strong></span>
+    <ul>
+        <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+            <li><%= recipe.ingredients[i] %></li>
+        <% } %>
+    </ul>
+
+    <!-- directions loop -->
+    <span><strong>Directions</strong></span>
+    <ol>
+        <% for (let i = 0; i < recipe.directions.length; i++) { %>
+            <li><%= recipe.directions[i] %></li>
+        <% } %>
+    </ol>
+    
+    <!-- special notes -->
+    <span><strong>Special Notes</strong></span>
+    <p><%= recipe.specialNotes %></p>
+</section>
+
+<%- include('partials/footer') -%>

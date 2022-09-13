@@ -5,12 +5,10 @@ const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
-router.get("/:id", ensureAuth, postsController.getPost);
+router.get("/:id", ensureAuth, postsController.getRecipe);
 
-router.post("/createPost", upload.single("file"), postsController.createPost);
+router.post("/createRecipe", upload.single("file"), postsController.createRecipe);
 
-router.put("/likePost/:id", postsController.likePost);
-
-router.delete("/deletePost/:id", postsController.deletePost);
+router.delete("/deleteRecipe/:id", postsController.deleteRecipe);
 
 module.exports = router;

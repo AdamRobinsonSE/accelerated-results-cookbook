@@ -1,73 +1,70 @@
 const cloudinary = require("../middleware/cloudinary");
-const Post = require("../models/Post");
+const Recipe = require("../models/Recipe");
 
 module.exports = {
+  // Renders the user profile page - displaying the form to create a new recipe, as well as showing tables of existing recipes by types
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const recipes = await Recipe.find({ user: req.user.id });
+      res.render("profile.ejs", { 
+        recipes: recipes, 
+        user: req.user 
+      });
     } catch (err) {
       console.log(err);
     }
   },
-  getFeed: async (req, res) => {
+
+  // Takes user to a page that shows all the details of a recipe
+  getRecipe: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      const recipe = await Recipe.findById(req.params.id);
+      res.render("recipe.ejs", { 
+        recipe: recipe, 
+        user: req.user 
+      });
     } catch (err) {
       console.log(err);
     }
   },
-  getPost: async (req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-      res.render("post.ejs", { post: post, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  createPost: async (req, res) => {
+
+  // Allows the creation of a new recipe
+  createRecipe: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Post.create({
-        title: req.body.title,
+      await Recipe.create({
+        recipeName: req.body.recipeName,
+        type: req.body.type,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        caption: req.body.caption,
-        likes: 0,
+        prepTime: req.body.prepTime,
+        cookTime: req.body.cookTime,
+        totalTime: req.body.totalTime,
+        ingredients: req.body.ingredients.split(','),
+        directions: req.body.directions.split('.'),
+        specialNotes: req.body.specialNotes,
         user: req.user.id,
       });
-      console.log("Post has been added!");
+
+      console.log("Recipe has been added!");
       res.redirect("/profile");
+
     } catch (err) {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
-    try {
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
-        }
-      );
-      console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  deletePost: async (req, res) => {
+  
+  deleteRecipe: async (req, res) => {
     try {
       // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
+      let recipe = await Recipe.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(post.cloudinaryId);
+      await cloudinary.uploader.destroy(recipe.cloudinaryId);
       // Delete post from db
-      await Post.remove({ _id: req.params.id });
-      console.log("Deleted Post");
+      await Recipe.remove({ _id: req.params.id });
+      console.log("Deleted Recipe");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");
