@@ -11,4 +11,6 @@ router.post("/createRecipe", upload.single("file"), postsController.createRecipe
 
 router.delete("/deleteRecipe/:id", postsController.deleteRecipe);
 
+router.put("/editRecipe/:id", upload.single("file"), postsController.editRecipe);
+
 module.exports = router;

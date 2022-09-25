@@ -1,9 +1,85 @@
-<%- include('partials/header') -%>
+<%- include('partials/every-other-page-header') -%>
 
-<!-- name, image, and info -->
-<section class="info-container container">
+<!-- name, image, and cooking time -->
+
+<section class="container">
     <div>
         <h1><%= recipe.recipeName %></h1>
+
+        <!-- button that triggers a bootstrap modal -->
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editRecipe">
+            Edit Recipe
+        </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="editRecipe" tabindex="-1" aria-labelledby="editRecipeLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editRecipe">Edit Recipe</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- form with method override to edit all the fields of the recipe -->
+                    <form action="/post/editRecipe/<%= recipe._id %>?_method=PUT" method="POST">
+                        <div class="mb-3">
+                            <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
+                            <input type="text" class="form-control" id="recipeName" name="recipeName" placeholder="<%= recipe.recipeName %>">
+                        </div>
+                        <div class="form-group mb-3">
+                          <label for="type" class="form-label"><strong>Type</strong></label>
+                          <select class="form-select" id="type" name="type">
+                            <option><%= recipe.type %></option> 
+                            <option>Breakfast</option>
+                            <option>Entrée</option>
+                            <option>Dessert</option>
+                            <option>Vegan</option>
+                            <option>Vegetarian</option>
+                          </select>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
+                            <input type="text" class="form-control" id="prepTime" name="prepTime" placeholder="<%= recipe.prepTime %>">
+                          </div>
+                          <div class="col">
+                            <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
+                            <input type="text" class="form-control" id="cookTime" name="cookTime" placeholder="<%= recipe.cookTime %>">
+                          </div>
+                          <div class="col">
+                            <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
+                            <input type="text" class="form-control" id="totalTime" name="totalTime" placeholder="<%= recipe.totalTime %>">
+                          </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                          <label for="ingredients" class="form-label"><strong>Ingredients</strong></label>
+                          <textarea type="text" placeholder="<%= recipe.ingredients %>" class="form-control" id="ingredients" name="ingredients" ></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="directions" class="form-label"><strong>Directions</strong></label>
+                          <textarea type="text" placeholder="<%= recipe.directions %>" class="form-control" id="directions" name="directions"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
+                          <textarea type="text" placeholder="<%= recipe.specialNotes %>" class="form-control" id="specialNotes" name="specialNotes"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="imgUpload" class="form-label"><strong>Image</strong></label>
+                          <input type="file" class="form-control" id="imageUpload" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
         <img class='img-thumbnail' src="<%= recipe.image %>" alt="<%= recipe.name %>">
     </div>
     <div>
@@ -15,7 +91,8 @@
     </div>
 </section>
 
-<section class="instructions-container container">
+<!-- ingredients, directions, special notes -->
+<section class="container">
     <!-- ingredients loop-->
     <span><strong>Ingredients</strong></span>
     <ul>
@@ -37,4 +114,4 @@
     <p><%= recipe.specialNotes %></p>
 </section>
 
-<%- include('partials/footer') -%>
+<%- include('partials/every-other-page-footer') -%>

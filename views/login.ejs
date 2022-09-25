@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<%- include('partials/index-login-signup-header') -%>
 
 <main class="container">
   <div class="row justify-content-center">
@@ -11,7 +11,7 @@
       <% }) %> <% } %>
       <form action="/login" method="POST">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
+          <label class="text-light" for="exampleInputEmail1" class="form-label"
             >Email address</label
           >
           <input
@@ -23,7 +23,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <label class="text-light" for="exampleInputPassword1" class="form-label">Password</label>
           <input
             type="password"
             class="form-control"
@@ -37,4 +37,4 @@
   </div>
 </main>
 
-<%- include('partials/footer') -%>
+<%- include('partials/index-login-signup-footer') -%>

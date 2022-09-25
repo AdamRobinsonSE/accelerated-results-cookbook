@@ -56,6 +56,7 @@ module.exports = {
     }
   },
   
+  // Allows the deletion of a recipe
   deleteRecipe: async (req, res) => {
     try {
       // Find post by id
@@ -70,4 +71,34 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+
+  // Allows the editing of a recipe
+  editRecipe: async (req, res) => {
+    try {
+      // Find recipe by id
+      let recipe = await Recipe.findById({ _id: req.params.id });
+      // Delete image from cloudinary
+      await cloudinary.uploader.destroy(recipe.cloudinaryId);
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+      // Update recipe
+      await Recipe.updateOne({ _id: req.params.id }, {
+        recipeName: req.body.recipeName,
+        type: req.body.type,
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
+        prepTime: req.body.prepTime,
+        cookTime: req.body.cookTime,
+        totalTime: req.body.totalTime,
+        ingredients: req.body.ingredients.split(','),
+        directions: req.body.directions.split('.'),
+        specialNotes: req.body.specialNotes,
+      });
+      console.log("Edited Recipe");
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+      res.redirect("/post/" + req.params.id);
+    }
+  }
 };

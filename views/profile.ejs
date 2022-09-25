@@ -1,50 +1,57 @@
-<%- include('partials/header') -%>
+<%- include('partials/every-other-page-header') -%>
 
 <div class="container">
-  <div class="">
+  <div class="col-6">
       <div class="">
-          <div>
+          <!-- <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a recipe</h2>
+          </div> -->
+          <div class="mt-3">
+            <h1>Add a recipe</h1>
             <form action="/post/createRecipe" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="recipeName" class="form-label">Recipe Name</label>
+                  <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
                   <input type="text" class="form-control" id="recipeName" name="recipeName">
               </div>
-              <div class="mb-3">
-                <label for="type" class="form-label">Type</label>
-                <input type="text" class="form-control" id="type" name="type">
+              <div class="form-group mb-3">
+                <label for="type" class="form-label"><strong>Type</strong></label>
+                <select class="form-select" id="type" name="type">
+                  <option>Breakfast</option>
+                  <option>Entrée</option>
+                  <option>Dessert</option>
+                  <option>Vegan</option>
+                  <option>Vegetarian</option>
+                </select>
               </div>
-              <div class="mb-3">
-                <label for="prepTime" class="form-label">Prep Time</label>
-                <input type="text" class="form-control" id="prepTime" name="prepTime">
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
+                  <input type="text" class="form-control" id="prepTime" name="prepTime">
+                </div>
+                <div class="col">
+                  <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
+                  <input type="text" class="form-control" id="cookTime" name="cookTime">
+                </div>
+                <div class="col">
+                  <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
+                  <input type="text" class="form-control" id="totalTime" name="totalTime">
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="cookTime" class="form-label">Cook Time</label>
-                <input type="text" class="form-control" id="cookTime" name="cookTime">
-              </div>
-              <div class="mb-3">
-                <label for="totalTime" class="form-label">Total Time</label>
-                <input type="text" class="form-control" id="totalTime" name="totalTime">
-              </div>
-              <div class="mb-3">
-                <label for="ingredients" class="form-label">Ingredients</label>
+              <div class="mb-3 mt-3">
+                <label for="ingredients" class="form-label"><strong>Ingredients</strong></label>
                 <textarea type="text" placeholder="enter ingredients separated by commas" class="form-control" id="ingredients" name="ingredients"></textarea>
               </div>
               <div class="mb-3">
-                <label for="directions" class="form-label">Directions</label>
+                <label for="directions" class="form-label"><strong>Directions</strong></label>
                 <textarea type="text" placeholder="enter directions separated by periods" class="form-control" id="directions" name="directions"></textarea>
               </div>
               <div class="mb-3">
-                <label for="specialNotes" class="form-label">Special Notes</label>
-                <textarea class="form-control" id="specialNotes" name="specialNotes"></textarea>
+                <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
+                <textarea type="text" class="form-control" id="specialNotes" name="specialNotes"></textarea>
               </div>
               <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
+                <label for="imgUpload" class="form-label"><strong>Image</strong></label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
@@ -55,12 +62,16 @@
   </div>
 </div>
 
-<div class="container">
-  <table class="table table-hover">
+<!-- breakfast recipe table -->
+<div class="container mt-5">
+  <h2>Breakfast Recipes</h2>
+  <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
         <th scope="col">Type</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
         <th scope="col">View</th>
         <th scope="col">Delete</th>
@@ -69,20 +80,181 @@
     <tbody>
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
-          <td><%= recipe.recipeName %></td>
-          <td><%= recipe.type %></td>
-          <td><%= recipe.totalTime %></td>
-          <td><a href="/post/<%= recipe._id %>" class="btn btn-primary">View</a></td>
-          <!-- form with my methodoverride to delete the recipe by id-->
-          <td>
-            <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-          </td>
+          <% if (recipe.type === "Breakfast") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.type %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <!-- form with my methodoverride to delete the recipe by id-->
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
         <% }) %>
       </tr>
     </tbody>
   </table>
 </div>
 
-<%- include('partials/footer') -%>
+<!-- entrée recipe table -->
+<div class="container mt-5">
+  <h2>Entrée Recipes</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
+        <th scope="col">Total Time</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === "Entrée") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.type %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <!-- form with my methodoverride to delete the recipe by id-->
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
+        <% }) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- dessert recipe table -->
+<div class="container mt-5">
+  <h2>Dessert Recipes</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
+        <th scope="col">Total Time</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === "Dessert") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.type %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <!-- form with my methodoverride to delete the recipe by id-->
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
+        <% }) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- vegan recipe table -->
+<div class="container mt-5">
+  <h2>Vegan Recipes</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
+        <th scope="col">Total Time</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === "Vegan") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.type %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <!-- form with my methodoverride to delete the recipe by id-->
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
+        <% }) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- vegetarian recipe table -->
+<div class="container mt-5">
+  <h2>Vegetarian Recipes</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
+        <th scope="col">Total Time</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === "Vegetarian") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.type %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <!-- form with my methodoverride to delete the recipe by id-->
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
+        <% }) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<%- include('partials/every-other-page-footer') -%>
