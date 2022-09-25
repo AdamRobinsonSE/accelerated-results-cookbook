@@ -37,13 +37,14 @@ module.exports = {
       await Recipe.create({
         recipeName: req.body.recipeName,
         type: req.body.type,
+        description: req.body.description,
         image: result.secure_url,
         cloudinaryId: result.public_id,
         prepTime: req.body.prepTime,
         cookTime: req.body.cookTime,
         totalTime: req.body.totalTime,
-        ingredients: req.body.ingredients.split(','),
-        directions: req.body.directions.split('.'),
+        ingredients: req.body.ingredients,
+        directions: req.body.directions,
         specialNotes: req.body.specialNotes,
         user: req.user.id,
       });
@@ -85,13 +86,14 @@ module.exports = {
       await Recipe.updateOne({ _id: req.params.id }, {
         recipeName: req.body.recipeName,
         type: req.body.type,
+        description: req.body.description,
         image: result.secure_url,
         cloudinaryId: result.public_id,
         prepTime: req.body.prepTime,
         cookTime: req.body.cookTime,
         totalTime: req.body.totalTime,
-        ingredients: req.body.ingredients.split(','),
-        directions: req.body.directions.split('.'),
+        ingredients: req.body.ingredients,
+        directions: req.body.directions,
         specialNotes: req.body.specialNotes,
       });
       console.log("Edited Recipe");

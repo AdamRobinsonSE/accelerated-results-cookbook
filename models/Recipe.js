@@ -7,6 +7,11 @@ const RecipeSchema = new mongoose.Schema({
   },
   type: {
     type: String,
+    enum: ['Breakfast', 'Entrée', 'Dessert', 'Vegan', 'Vegetarian'],
+    required: true
+  },
+  description: {
+    type: String,
     required: true
   },
   image: {
@@ -29,14 +34,14 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  ingredients: [{
-    type: String,
+  ingredients: {
+    type: Array,
     required: true,
-  }],
-  directions: [{
-    type: String,
+  },
+  directions: {
+    type: Array,
     required: true
-  }],
+  },
   specialNotes: {
     type: String,
     required: true,
