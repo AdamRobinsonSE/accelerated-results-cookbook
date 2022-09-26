@@ -1,0 +1,145 @@
+<section class="container">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editRecipe">
+    Edit Recipe
+</button>
+
+<div class="modal fade" id="editRecipe" tabindex="-1" aria-labelledby="editRecipeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editRecipe">Edit Recipe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- form with method override to edit all the fields of the recipe -->
+            <form action="/post/editRecipe/<%= recipe._id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+
+                <!-- recipe name -->
+                <div class="mb-3">
+                    <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
+                    <input type="text" class="form-control" id="recipeName" name="recipeName" value="<%= recipe.recipeName %>">
+                </div>
+
+                <!-- type -->
+                <div class="form-group mb-3">
+                  <label for="type" class="form-label"><strong>Type</strong></label>
+                    <select class="form-select" id="type" name="type">
+                        <option selected><%= recipe.type %></option> 
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                    </select>
+                </div>
+
+                <!-- vegan -->
+                <div class="form-group mb-3">
+                    <label for="vegan" class="form-label"><strong>Vegan</strong></label>
+                    <select class="form-select" id="vegan" name="vegan">
+                      <option selected><%= recipe.vegan %></option> 
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                </div>
+
+                <!-- vegetarian -->
+                <div class="form-group mb-3">
+                    <label for="vegetarian" class="form-label"><strong>Vegetarian</strong></label>
+                    <select class="form-select" id="vegetarian" name="vegetarian">
+                      <option selected><%= recipe.vegan %></option> 
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                </div>
+
+                <!-- gluten-free -->
+                <div class="form-group mb-3">
+                    <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
+                    <select class="form-select" id="glutenFree" name="glutenFree">
+                      <option selected><%= recipe.vegan %></option> 
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                </div>
+
+                <!-- description -->
+                <div class="mb-3">
+                  <label for="description" class="form-label"><strong>Description</strong></label>
+                  <textarea type="text" class="form-control" id="description" name="description" rows="10"><%= recipe.description %></textarea>
+                </div>
+
+                <!-- prep, bake/cook, total time-->
+                <div class="row mb-3">
+                  <div class="col">
+                    <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
+                    <input type="text" class="form-control" id="prepTime" name="prepTime" value="<%= recipe.prepTime %>">
+                  </div>
+                  <div class="col">
+                    <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
+                    <input type="text" class="form-control" id="cookTime" name="cookTime" value="<%= recipe.cookTime %>">
+                  </div>
+                  <div class="col">
+                    <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
+                    <input type="text" class="form-control" id="totalTime" name="totalTime" value="<%= recipe.totalTime %>">
+                  </div>
+                </div>
+
+                <!-- ingredients -->
+                <div class="mb-3">
+                  <label for="name" class="form-label"><strong>Ingredients</strong></label>
+                  <div class="ingredientList">
+                    <div class="ingredientDiv mb-1">
+                      <!-- forEach loop putting each ingredient in an input -->
+                      <% recipe.ingredients.forEach(function(ingredient) { %>
+                        <input type="text" class="form-control" id="ingredients" name="ingredients" value="<%= ingredient %>">
+                      <% }); %>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+                  <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
+                </div>
+
+                <!-- directions -->
+                <div class="mb-3">
+                  <label for="name" class="form-label"><strong>Directions</strong></label>
+                  <div class="directionList">
+                    <div class="directionDiv mb-1">
+                      <!-- forEach loop putting each direction in an input -->
+                      <% recipe.directions.forEach(function(direction) { %>
+                        <input type="text" class="form-control" id="directions" name="directions" value="<%= direction %>">
+                      <% }); %>                                            
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn">+ Direction</button>
+                  <button type="button" class="btn btn-outline-primary" id="minusDirectionsBtn">- Direction</button>
+                </div>
+
+                <!-- special notes -->
+                <div class="mb-3">
+                  <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
+                  <textarea type="text" class="form-control" id="specialNotes" name="specialNotes"><%= recipe.specialNotes %></textarea>
+                </div>
+
+                <!-- image -->
+                <div class="mb-3">
+                  <label for="imgUpload" class="form-label"><strong>Image</strong></label>
+                  <input type="file" class="form-control" id="imageUpload" name="file">
+                </div>
+
+                <!-- submit button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+            <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

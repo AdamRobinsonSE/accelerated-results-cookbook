@@ -37,6 +37,9 @@ module.exports = {
       await Recipe.create({
         recipeName: req.body.recipeName,
         type: req.body.type,
+        vegan: req.body.vegan,
+        vegetarian: req.body.vegetarian,
+        glutenFree: req.body.glutenFree,
         description: req.body.description,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -76,31 +79,64 @@ module.exports = {
   // Allows the editing of a recipe
   editRecipe: async (req, res) => {
     try {
-      // Find recipe by id
       let recipe = await Recipe.findById({ _id: req.params.id });
-      // Delete image from cloudinary
-      await cloudinary.uploader.destroy(recipe.cloudinaryId);
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-      // Update recipe
-      await Recipe.updateOne({ _id: req.params.id }, {
-        recipeName: req.body.recipeName,
-        type: req.body.type,
-        description: req.body.description,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
-        prepTime: req.body.prepTime,
-        cookTime: req.body.cookTime,
-        totalTime: req.body.totalTime,
-        ingredients: req.body.ingredients,
-        directions: req.body.directions,
-        specialNotes: req.body.specialNotes,
-      });
+      if (req.file) {
+        await cloudinary.uploader.destroy(recipe.cloudinaryId);
+        const result = await cloudinary.uploader.upload(req.file.path);
+        recipe.image = result.secure_url;
+        recipe.cloudinaryId = result.public_id;
+      }
+      recipe.recipeName = req.body.recipeName;
+      recipe.type = req.body.type;
+      recipe.vegan = req.body.vegan;
+      recipe.vegetarian = req.body.vegetarian;
+      recipe.glutenFree = req.body.glutenFree;
+      recipe.description = req.body.description;
+      recipe.prepTime = req.body.prepTime;
+      recipe.cookTime = req.body.cookTime;
+      recipe.totalTime = req.body.totalTime;
+      recipe.ingredients = req.body.ingredients;
+      recipe.directions = req.body.directions;
+      recipe.specialNotes = req.body.specialNotes;
+      recipe.user = req.user.id;
+      
+      await recipe.save();
       console.log("Edited Recipe");
       res.redirect("/post/" + req.params.id);
     } catch (err) {
       console.log(err);
       res.redirect("/post/" + req.params.id);
     }
-  }
+  },
 };
+
+// editRecipe: async (req, res) => {
+//   try {
+//     // Find recipe by id
+//     let recipe = await Recipe.findById({ _id: req.params.id });
+//     // Delete image from cloudinary
+//     await cloudinary.uploader.destroy(recipe.cloudinaryId);
+//     // Upload image to cloudinary
+//     const result = await cloudinary.uploader.upload(req.file.path);
+//     // Update recipe
+//     await Recipe.updateOne({ _id: req.params.id }, {
+//       recipeName: req.body.recipeName,
+//       type: req.body.type,
+//       description: req.body.description,
+//       image: result.secure_url,
+//       cloudinaryId: result.public_id,
+//       prepTime: req.body.prepTime,
+//       cookTime: req.body.cookTime,
+//       totalTime: req.body.totalTime,
+//       ingredients: req.body.ingredients,
+//       directions: req.body.directions,
+//       specialNotes: req.body.specialNotes,
+//     });
+//     console.log("Edited Recipe");
+//     res.redirect("/post/" + req.params.id);
+//   } catch (err) {
+//     console.log(err);
+//     res.redirect("/post/" + req.params.id);
+//   }
+// }
+

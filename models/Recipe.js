@@ -7,8 +7,23 @@ const RecipeSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['Breakfast', 'Entrée', 'Dessert', 'Vegan', 'Vegetarian'],
+    enum: ['Breakfast', 'Entrée', 'Side', 'Snack', 'Drink', 'Dessert'],
     required: true
+  },
+  vegan: {
+    type: Boolean,
+    enum: [true, false],
+    required: true
+  },
+  vegetarian: {
+    type: Boolean,
+    enum: [true, false],
+    required: true,
+  },
+  glutenFree: {
+    type: Boolean,
+    enum: [true, false],
+    required: true,
   },
   description: {
     type: String,

@@ -1,38 +1,33 @@
-let addIngredientsBtn = document.getElementById('addIngredientsBtn');
-let ingredientList = document.querySelector('.ingredientList');
-let ingredientDiv = document.querySelectorAll('.ingredientDiv');
+// add/minus ingredients buttons and functions
+document.querySelector('#addIngredientsBtn').addEventListener('click', addIngredients);
+document.querySelector('#minusIngredientsBtn').addEventListener('click', minusIngredients);
 
-addIngredientsBtn.addEventListener('click', function(){
-    let newIngredientDiv = ingredientDiv[0].cloneNode(true);
-    let input = newIngredientDiv.querySelector('input');
-    input.value = '';
-    ingredientList.appendChild(newIngredientDiv);
-});
- 
-minusIngredientsBtn.addEventListener('click', function(){
-    let ingredientDiv = document.querySelectorAll('.ingredientDiv');
-    if(ingredientDiv.length > 1){
-        ingredientList.removeChild(ingredientDiv[ingredientDiv.length - 1]);
-    }
-});
+function addIngredients(){
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('name', 'ingredients');
+    input.setAttribute('class', 'form-control mt-1');
+    document.querySelector('.ingredientDiv').appendChild(input);
+}
 
-let addDirectionsBtn = document.getElementById('addDirectionsBtn');
-let directionList = document.querySelector('.directionList');
-let directionDiv = document.querySelectorAll('.directionDiv')[0];
+function minusIngredients(){
+    let input = document.querySelector('.ingredientDiv');
+    input.removeChild(input.lastChild);
+}
 
-addDirectionsBtn.addEventListener('click', function(){
-    let newDirections = directionDiv.cloneNode(true);
-    let input = newDirections.getElementsByTagName('input')[0];
-    input.value = '';
-    directionList.appendChild(newDirections);
-});
+// add/minus direction buttons and functions
+document.querySelector('#addDirectionsBtn').addEventListener('click', addDirections);
+document.querySelector('#minusDirectionsBtn').addEventListener('click', minusDirections);
 
-minusDirectionsBtn.addEventListener('click', function(){
-    let directionDiv = document.querySelectorAll('.directionDiv');
-    if(directionDiv.length > 1){
-        directionList.removeChild(directionDiv[directionDiv.length - 1]);
-    }
-});
+function addDirections(){
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('name', 'directions');
+    input.setAttribute('class', 'form-control mt-1');
+    document.querySelector('.directionDiv').appendChild(input);
+}
 
-
-
+function minusDirections(){
+    let input = document.querySelector('.directionDiv');
+    input.removeChild(input.lastChild);
+}

@@ -1,115 +1,207 @@
 <%- include('partials/every-other-page-header') -%>
 
 <div class="container">
-  <div class="col-6">
-      <div class="">
-          <!-- <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-          </div> -->
-          <div class="mt-3">
-            <h1>Add a recipe</h1>
-            <form action="/post/createRecipe" enctype="multipart/form-data" method="POST">
+  <div class="col-12">
+    <div class="mt-3">
+      <h1>Add a recipe</h1>
+      <form action="/post/createRecipe" enctype="multipart/form-data" method="POST">
 
-              <!-- recipe name -->
-              <div class="mb-3">
-                  <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
-                  <input type="text" class="form-control" id="recipeName" name="recipeName">
-              </div>
-
-              <!-- type -->
-              <div class="form-group mb-3">
-                <label for="type" class="form-label"><strong>Type</strong></label>
-                <select class="form-select" id="type" name="type">
-                  <option selected>Choose...</option>
-                  <option value="Breakfast">Breakfast</option>
-                  <option value="Entrée">Entrée</option>
-                  <option value="Dessert">Dessert</option>
-                  <option value="Vegan">Vegan</option>
-                  <option value="Vegetarian">Vegetarian</option>
-                </select>
-              </div>
-              
-              <!-- description -->
-              <div class="mb-3">
-                <label for="description" class="form-label"><strong>Description</strong></label>
-                <textarea type="text" class="form-control" id="description" name="description" rows="10"></textarea>
-              </div>
-
-              <!-- prep, bake/cook, total time -->
-              <div class="row mb-3 mt-3">
-                <div class="col">
-                  <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
-                  <input type="text" class="form-control" id="prepTime" name="prepTime">
-                </div>
-                <div class="col">
-                  <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
-                  <input type="text" class="form-control" id="cookTime" name="cookTime">
-                </div>
-                <div class="col">
-                  <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
-                  <input type="text" class="form-control" id="totalTime" name="totalTime">
-                </div>
-              </div>
-
-              <!-- ingredients -->
-              <div class="mb-3">
-                <label for="name" class="form-label"><strong>Ingredients</strong></label>
-                <div class="ingredientList">
-                  <div class="ingredientDiv mb-1">
-                    <input type="text" name="ingredients" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
-                <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
-              </div>
-
-              <!-- directions -->
-              <div class="mb-3">
-                <label for="name" class="form-label"><strong>Directions</strong></label>
-                <div class="directionList">
-                  <div class="directionDiv mb-1">
-                    <input type="text" name="directions" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn">+ Direction</button>
-                <button type="button" class="btn btn-outline-primary" id="minusDirectionsBtn">- Direction</button>
-              </div>
-
-              <!-- <div class="mb-3 mt-3">
-                <label for="ingredients" class="form-label"><strong>Ingredients</strong></label>
-                <textarea type="text" placeholder="enter ingredients separated by commas" class="form-control" id="ingredients" name="ingredients"></textarea>
-              </div> -->
-              <!-- <div class="mb-3">
-                <label for="directions" class="form-label"><strong>Directions</strong></label>
-                <textarea type="text" placeholder="enter directions separated by periods" class="form-control" id="directions" name="directions"></textarea>
-              </div> -->
-
-              <!-- special notes -->
-              <div class="mb-3">
-                <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
-                <textarea type="text" class="form-control" id="specialNotes" name="specialNotes" rows="5"></textarea>
-              </div>
-
-              <!-- image -->
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label"><strong>Image</strong></label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-
-              <!-- submit button -->
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-
-            </form>
+          <!-- recipe name -->
+          <div class="mb-3">
+              <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
+              <input type="text" class="form-control" id="recipeName" name="recipeName">
           </div>
-      </div>
+
+          <!-- type, vegan, vegetarian, gluten-free -->
+          <!-- at medium width stack all the rows -->
+
+          <div class="row mb-3">
+            <!-- type -->
+            <div class="col-3">
+              <label for="type" class="form-label"><strong>Type</strong></label>
+              <select class="form-select" id="type" name="type">
+                <option selected>Choose...</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Side">Side</option>
+                <option value="Snack">Snack</option>
+                <option value="Drink">Drink</option>
+                <option value="Dessert">Dessert</option>
+              </select>
+            </div>
+
+            <!-- vegan -->
+            <div class="col-3">
+              <label for="vegan" class="form-label"><strong>Vegan</strong></label>
+              <select class="form-select" id="vegan" name="vegan">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+
+            <!-- vegetarian -->
+            <div class="col-3">
+              <label for="vegetarian" class="form-label"><strong>Vegetarian</strong></label>
+              <select class="form-select" id="vegetarian" name="vegetarian">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>            
+            </div>
+
+            <!-- gluten-free -->
+            <div class="col-3">
+              <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
+              <select class="form-select" id="glutenFree" name="glutenFree">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+        
+          <!-- description -->
+          <div class="mb-3">
+            <label for="description" class="form-label"><strong>Description</strong></label>
+            <textarea type="text" class="form-control" id="description" name="description" rows="10"></textarea>
+          </div>
+
+          <!-- prep, bake/cook, total time -->
+          <div class="row mb-3 mt-3">
+            <div class="col">
+              <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
+              <input type="text" class="form-control" id="prepTime" name="prepTime">
+            </div>
+            <div class="col">
+              <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
+              <input type="text" class="form-control" id="cookTime" name="cookTime">
+            </div>
+            <div class="col">
+              <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
+              <input type="text" class="form-control" id="totalTime" name="totalTime">
+            </div>
+          </div>
+
+          <!-- ingredients -->
+          <div class="mb-3">
+            <label for="name" class="form-label"><strong>Ingredients</strong></label>
+            <div class="ingredientList">
+              <div class="ingredientDiv mb-1">
+                <input type="text" name="ingredients" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+            <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
+          </div>
+
+          <!-- directions -->
+          <div class="mb-3">
+            <label for="name" class="form-label"><strong>Directions</strong></label>
+            <div class="directionList">
+              <div class="directionDiv mb-1">
+                <input type="text" name="directions" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn">+ Direction</button>
+            <button type="button" class="btn btn-outline-primary" id="minusDirectionsBtn">- Direction</button>
+          </div>
+
+          <!-- special notes -->
+          <div class="mb-3">
+            <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
+            <textarea type="text" class="form-control" id="specialNotes" name="specialNotes" rows="5"></textarea>
+          </div>
+
+          <!-- image -->
+          <div class="mb-3">
+            <label for="imgUpload" class="form-label"><strong>Image</strong></label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+          </div>
+
+          <!-- submit button -->
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+
+      </form>
     </div>
   </div>
 </div>
+
+<!-- breakfast image/link to individuals breakfast recipes -->
+<!-- <div class="container mt-5 mb-5">
+  <div class="row">
+    
+    <div class="col-4">
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Breakfast Recipes</h5>
+          <img src="/images/generic-breakfast.jpg" class="card-img-top img-fluid" alt="generic-breakfast">
+          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card text-center" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Entrée Recipes</h5>
+          <img src="/images/generic-entree.jpg" class="card-img-top" alt="generic-entrée">
+          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card text-center" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Side Recipes</h5>
+          <img src="/images/generic-side.jpg" class="card-img-top" alt="generic-side">
+          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+        </div>
+      </div>
+    </div>  
+
+  </div>
+  
+  
+  <div class="card text-center" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Side Recipes</h5>
+      <img src="/images/generic-side.jpg" class="card-img-top" alt="generic-side">
+      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+    </div>
+  </div>
+  <div class="card text-center" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Snack Recipes</h5>
+      <img src="/images/generic-snack.jpg" class="card-img-top" alt="generic-snack">
+      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+    </div>
+  </div>
+  <div class="card text-center" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Drink Recipes</h5>
+      <img src="/images/generic-drink.jpg" class="card-img-top" alt="generic-drink">
+      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+    </div>
+  </div>
+  <div class="card text-center" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Dessert Recipes</h5>
+      <img src="/images/generic-dessert.jpg" class="card-img-top" alt="generic-dessert">
+      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
+    </div>
+  </div>
+</div> -->
+
+             
+                       
+
+
 
 <!-- breakfast recipe table -->
 <div class="container mt-5">
@@ -136,7 +228,6 @@
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
             <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <!-- form with my methodoverride to delete the recipe by id-->
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -174,8 +265,7 @@
             <td><%= recipe.prepTime %></td>
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <!-- form with my methodoverride to delete the recipe by id-->
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -213,8 +303,7 @@
             <td><%= recipe.prepTime %></td>
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <!-- form with my methodoverride to delete the recipe by id-->
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -253,7 +342,6 @@
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
             <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <!-- form with my methodoverride to delete the recipe by id-->
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -292,7 +380,6 @@
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
             <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <!-- form with my methodoverride to delete the recipe by id-->
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
