@@ -97,7 +97,7 @@ module.exports = {
         specialNotes: req.body.specialNotes,
       });
       console.log("Edited Recipe");
-      res.redirect("/profile");
+      res.redirect("/post/" + req.params.id);
     } catch (err) {
       console.log(err);
       res.redirect("/post/" + req.params.id);

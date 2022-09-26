@@ -22,12 +22,12 @@
                 </div>
                 <div class="modal-body">
                   <!-- form with method override to edit all the fields of the recipe -->
-                    <form action="/post/editRecipe/<%= recipe._id %>?_method=PUT" method="POST">
+                    <form action="/post/editRecipe/<%= recipe._id %>?_method=PUT" enctype="multipart/form-data" method="POST">
 
                         <!-- recipe name -->
                         <div class="mb-3">
                             <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
-                            <input type="text" class="form-control" id="recipeName" name="recipeName" placeholder="<%= recipe.recipeName %>">
+                            <input type="text" class="form-control" id="recipeName" name="recipeName" value="<%= recipe.recipeName %>">
                         </div>
 
                         <!-- type -->
@@ -46,22 +46,22 @@
                         <!-- description -->
                         <div class="mb-3">
                           <label for="description" class="form-label"><strong>Description</strong></label>
-                          <textarea type="text" placeholder="<%= recipe.description %>" class="form-control" id="description" name="description" rows="10"></textarea>
+                          <textarea type="text" class="form-control" id="description" name="description" rows="10"><%= recipe.description %></textarea>
                         </div>
 
                         <!-- prep, bake/cook, total time-->
                         <div class="row mb-3">
                           <div class="col">
                             <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
-                            <input type="text" class="form-control" id="prepTime" name="prepTime" placeholder="<%= recipe.prepTime %>">
+                            <input type="text" class="form-control" id="prepTime" name="prepTime" value="<%= recipe.prepTime %>">
                           </div>
                           <div class="col">
                             <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
-                            <input type="text" class="form-control" id="cookTime" name="cookTime" placeholder="<%= recipe.cookTime %>">
+                            <input type="text" class="form-control" id="cookTime" name="cookTime" value="<%= recipe.cookTime %>">
                           </div>
                           <div class="col">
                             <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
-                            <input type="text" class="form-control" id="totalTime" name="totalTime" placeholder="<%= recipe.totalTime %>">
+                            <input type="text" class="form-control" id="totalTime" name="totalTime" value="<%= recipe.totalTime %>">
                           </div>
                         </div>
 
@@ -72,7 +72,7 @@
                             <div class="ingredientDiv mb-1">
                               <!-- forEach loop putting each ingredient in an input -->
                               <% recipe.ingredients.forEach(function(ingredient) { %>
-                                <input type="text" class="form-control" id="ingredients" name="ingredients" placeholder="<%= ingredient %>">
+                                <input type="text" class="form-control" id="ingredients" name="ingredients" value="<%= ingredient %>">
                               <% }); %>
                             </div>
                           </div>
@@ -89,7 +89,7 @@
                             <div class="directionDiv mb-1">
                               <!-- forEach loop putting each direction in an input -->
                               <% recipe.directions.forEach(function(direction) { %>
-                                <input type="text" class="form-control" id="directions" name="directions" placeholder="<%= direction %>">
+                                <input type="text" class="form-control" id="directions" name="directions" value="<%= direction %>">
                               <% }); %>                                            
                             </div>
                           </div>
@@ -102,7 +102,7 @@
                         <!-- special notes -->
                         <div class="mb-3">
                           <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
-                          <textarea type="text" placeholder="<%= recipe.specialNotes %>" class="form-control" id="specialNotes" name="specialNotes"></textarea>
+                          <textarea type="text" class="form-control" id="specialNotes" name="specialNotes"><%= recipe.specialNotes %></textarea>
                         </div>
 
                         <!-- image -->

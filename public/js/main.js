@@ -3,12 +3,12 @@ let ingredientList = document.querySelector('.ingredientList');
 let ingredientDiv = document.querySelectorAll('.ingredientDiv');
 
 addIngredientsBtn.addEventListener('click', function(){
-    let newIngredients = ingredeintDiv.cloneNode(true);
-    let input = newIngredients.getElementsByTagName('input')[0];
+    let newIngredientDiv = ingredientDiv[0].cloneNode(true);
+    let input = newIngredientDiv.querySelector('input');
     input.value = '';
-    ingredientList.appendChild(newIngredients);
-  });
-
+    ingredientList.appendChild(newIngredientDiv);
+});
+ 
 minusIngredientsBtn.addEventListener('click', function(){
     let ingredientDiv = document.querySelectorAll('.ingredientDiv');
     if(ingredientDiv.length > 1){
