@@ -130,79 +130,7 @@
     </div>
   </div>
 </div>
-
-<!-- breakfast image/link to individuals breakfast recipes -->
-<!-- <div class="container mt-5 mb-5">
-  <div class="row">
-    
-    <div class="col-4">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Breakfast Recipes</h5>
-          <img src="/images/generic-breakfast.jpg" class="card-img-top img-fluid" alt="generic-breakfast">
-          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card text-center" style="width: 25rem;">
-        <div class="card-body">
-          <h5 class="card-title">Entrée Recipes</h5>
-          <img src="/images/generic-entree.jpg" class="card-img-top" alt="generic-entrée">
-          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card text-center" style="width: 25rem;">
-        <div class="card-body">
-          <h5 class="card-title">Side Recipes</h5>
-          <img src="/images/generic-side.jpg" class="card-img-top" alt="generic-side">
-          <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-        </div>
-      </div>
-    </div>  
-
-  </div>
-  
-  
-  <div class="card text-center" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Side Recipes</h5>
-      <img src="/images/generic-side.jpg" class="card-img-top" alt="generic-side">
-      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-    </div>
-  </div>
-  <div class="card text-center" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Snack Recipes</h5>
-      <img src="/images/generic-snack.jpg" class="card-img-top" alt="generic-snack">
-      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-    </div>
-  </div>
-  <div class="card text-center" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Drink Recipes</h5>
-      <img src="/images/generic-drink.jpg" class="card-img-top" alt="generic-drink">
-      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-    </div>
-  </div>
-  <div class="card text-center" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Dessert Recipes</h5>
-      <img src="/images/generic-dessert.jpg" class="card-img-top" alt="generic-dessert">
-      <a href="#" class="btn btn-primary mt-2">View Recipes</a>
-    </div>
-  </div>
-</div> -->
-
-             
-                       
-
-
-
+                                
 <!-- breakfast recipe table -->
 <div class="container mt-5">
   <h2>Breakfast Recipes</h2>
@@ -286,7 +214,9 @@
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col">Prep Time</th>
         <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
@@ -299,7 +229,9 @@
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Dessert") { %>
             <td><%= recipe.recipeName %></td>
-            <td><%= recipe.type %></td>
+            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
             <td><%= recipe.prepTime %></td>
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
@@ -317,14 +249,16 @@
   </table>
 </div>
 
-<!-- vegan recipe table -->
+<!-- side recipes -->
 <div class="container mt-5">
-  <h2>Vegan Recipes</h2>
+  <h2>Side Recipes</h2>
   <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col">Prep Time</th>
         <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
@@ -335,13 +269,15 @@
     <tbody>
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Vegan") { %>
+          <% if (recipe.type === "Side") { %>
             <td><%= recipe.recipeName %></td>
-            <td><%= recipe.type %></td>
+            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
             <td><%= recipe.prepTime %></td>
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -355,14 +291,16 @@
   </table>
 </div>
 
-<!-- vegetarian recipe table -->
+<!-- snack recipes -->
 <div class="container mt-5">
-  <h2>Vegetarian Recipes</h2>
+  <h2>Snack Recipes</h2>
   <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col">Prep Time</th>
         <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
@@ -373,13 +311,57 @@
     <tbody>
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Vegetarian") { %>
+          <% if (recipe.type === "Snack") { %>
             <td><%= recipe.recipeName %></td>
-            <td><%= recipe.type %></td>
+            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
             <td><%= recipe.prepTime %></td>
             <td><%= recipe.cookTime %></td>
             <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td>
+              <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %> 
+        <% }) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- drink recipes -->
+<div class="container mt-5 mb-5">
+  <h2>Drink Recipes</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Bake/Cook Time</th>
+        <th scope="col">Total Time</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === "Drink") { %>
+            <td><%= recipe.recipeName %></td>
+            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td><%= recipe.prepTime %></td>
+            <td><%= recipe.cookTime %></td>
+            <td><%= recipe.totalTime %></td>
+            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
             <td>
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
