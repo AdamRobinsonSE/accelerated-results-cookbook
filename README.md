@@ -1,20 +1,19 @@
-# Install
+# Accelerated Results Fitness Cookbook # 
+A fully responsive and beautiful webstie to help with your nutrition. 
 
-`npm install`
+**Link to project:** (coming soon)
 
----
+**Login Page**
+![alt tag](https://github.com/AdamRobinsonSE/Sunset-Styles/blob/main/images/readme-screenshot.PNG)
 
-# Things to add
+## How It's Made:
 
-- Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your cloudinary cloud name`
-  - API_KEY = `your cloudinary api key`
-  - API_SECRET = `your cloudinary api secret`
+**Tech used:** HTML, CSS, JavaScript
 
----
+## Optimizations
 
-# Run
+In the future I want to take advantage of sprites for faster loading.
 
-`npm start`
+## Lessons Learned:
+
+A reminder to manage frustrations. A silly mistake of not using the right filepath in CSS lead to a several hour headache of why I couldn't get an image to load.
