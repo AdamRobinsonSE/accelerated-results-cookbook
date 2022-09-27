@@ -13,7 +13,7 @@ coming soon...
 
 This is truly a MVP. Users can signup, login, enter their own recipes and have full CRUD functionality with each one. 
 
-What is coming?
+What is coming? - This is a long and ever growing list. Below isn't everything, but it is the most important functionality I will implement before making it available to the public.
 
 1. Grocery List functionality, ability to add entire recipe ingredient lists to a grocery list, or individual items.
 2. Users can view other recipes added by other uses, and favorite those recipes to view with ease later.
