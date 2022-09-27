@@ -1,7 +1,9 @@
 # Accelerated Results Fitness Cookbook # 
 A fully responsive and beautiful webstie to help with your nutrition. 
 
-**Link to project:** (coming soon)
+## Link to project 
+
+coming soon...
 
 ## How It's Made:
 
@@ -24,14 +26,16 @@ What is coming?
 
 ## Add Recipe
 
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/add-recipe-readmin-screenshot.PNG)
+
 ## Recipe Tables
+
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-table-readme-screenshots.PNG)
 
 ## Recipe Page
 
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-readme-screenshot.PNG)
+
 ## Edit Recipe
 
-
-
-## Lessons Learned:
-
-A reminder to manage frustrations. A silly mistake of not using the right filepath in CSS lead to a several hour headache of why I couldn't get an image to load.
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/edit-recipe-readme-screenshot.PNG)
