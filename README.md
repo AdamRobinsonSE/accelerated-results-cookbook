@@ -3,7 +3,7 @@ A fully responsive and beautiful webstie to help with your nutrition.
 
 ## Link to project 
 
-coming soon...
+With heroku stepping away from free hosting I need to do some research of where I can host this...its coming soon!
 
 ## How It's Made:
 
