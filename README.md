@@ -11,8 +11,6 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Optimizations
 
-This is truly a MVP. Users can signup, login, enter their own recipes and have full CRUD functionality with each one. 
-
 What is coming? - This is a long and ever growing list. Below isn't everything, but it is the most important functionality I will implement before making it available to the public.
 
 1. Grocery List functionality, ability to add recipe ingredient names to the grocery list, or individual items. (DONE)
