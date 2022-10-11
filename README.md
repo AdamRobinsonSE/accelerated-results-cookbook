@@ -15,10 +15,10 @@ This is truly a MVP. Users can signup, login, enter their own recipes and have f
 
 What is coming? - This is a long and ever growing list. Below isn't everything, but it is the most important functionality I will implement before making it available to the public.
 
-1. Grocery List functionality, ability to add entire recipe ingredient lists to a grocery list, or individual items.
+1. Grocery List functionality, ability to add recipe ingredient names to the grocery list, or individual items. (DONE)
 2. Users can view other recipes added by other uses, and favorite those recipes to view with ease later.
 3. Users can comment on their own, or others recipes. 
-4. Users can meal plan their week on a weekly basis by entering in recipe names for different days/times.
+4. Users can favorite other recipes added by other users to easily view later
 5. An endless amount of styling to make the appearance more sleek, modern, and user friendly.
 
 ## Login Page
