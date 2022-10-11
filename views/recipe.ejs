@@ -1,5 +1,6 @@
-<%- include('partials/every-other-page-header') -%>
+<%- include('partials/profile-recipe-groceries-header') -%>
 
+<!-- recipe name, info container -->
 <div class="container">
   <div class="row">
     <div class="col-6">
@@ -21,6 +22,7 @@
   </div>
 </div>
 
+<!-- recipe description container -->
 <div class="container">
   <h2>Description</h2>
   <p><%= recipe.description %></p>
@@ -55,6 +57,7 @@
       </table>
 </div>
 
+<!-- recipe ingredient table container -->
 <div class="container mt-3">
   <h2>Directions</h2>
       <table class="table table-hover table-striped">
@@ -68,6 +71,7 @@
       </table>
 </div>
 
+<!-- recipe special notes container -->
 <div class="container mb-3">
   <h2>Special Notes</h2>
   <p><%= recipe.specialNotes %></p>
