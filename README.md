@@ -42,4 +42,4 @@ What is coming? - This is a long and ever growing list. Below isn't everything, 
 
 ## Grocery List
 
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/edit-recipe-readme-screenshot.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/grocery-list-readme-screenshot.PNG)
