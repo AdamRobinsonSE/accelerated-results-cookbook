@@ -20,20 +20,29 @@
 	clear: both;
 }
 
-
 /******************************************
 /* LAYOUT
 /*******************************************/
-
-
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
 
-.background {
+.index-login-signup-background {
   background-image: url("/images/login-background.jpg");
   background-size: cover;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
 }
+
+.completed {
+  /* text strike through */
+  text-decoration: line-through;
+}
+
+.every-other-background {
+  background: linear-gradient(to bottom, #f2f2f2 0%, #ffffff 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 

@@ -27,11 +27,9 @@ const RecipeSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true
   },
   image: {
     type: String,
-    require: true,
   },
   cloudinaryId: {
     type: String,
@@ -39,27 +37,30 @@ const RecipeSchema = new mongoose.Schema({
   },
   prepTime: {
     type: String,
-    required: true,
   },
-  cookTime: {
+  bakeOrCookTime: {
     type: String,
-    required: true,
   },
   totalTime: {
     type: String,
-    required: true,
   },
-  ingredients: {
+  ingredientAmount: {
     type: Array,
-    required: true,
+  },
+  ingredientUnit: {
+    type: Array,
+  },
+  ingredientName: {
+    type: Array,
+  },
+  ingredientInstructions: {
+    type: Array,
   },
   directions: {
     type: Array,
-    required: true
   },
   specialNotes: {
     type: String,
-    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

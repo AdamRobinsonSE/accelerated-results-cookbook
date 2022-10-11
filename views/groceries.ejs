@@ -1,0 +1,59 @@
+<%- include('partials/every-other-page-header') -%>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="d-grid gap-2 col-8 mx-auto text-center">
+            <h1>Hey there, <%= user.userName %>, welcome to your grocery list.</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <!-- grocery list -->
+
+    <div class="row mb-5">
+        <div class="col-md-8 mx-auto">
+            <ul class="list-group">
+                <% groceries.forEach(function(grocery) { %>
+                    <li class="list-group-item">
+                        <span class="groceryItem align-middle">
+                            <%= grocery.groceryItem %>
+                        </span>
+                        <span class="float-end">
+                            <form action="/groceries/deleteItem/<%= grocery._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+                        </span>
+                        <span class="float-end pe-1">
+                            <button type="button" class="btn btn-outline-primary markCompleteBtn">Mark Complete</button>
+                        </span>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- add new grocery items -->
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 mx-auto">
+            <h4 class="text-center">Add a new item</h4>
+            <form action="/groceries/addItem" method="POST">
+                <div class="groceryItemDiv mb-1">
+                    <label for="groceryItem" class="form-label"><strong>Item Name</strong></label>
+                    <input type="text" name="groceryItem" class="form-control" placeholder="new item">
+                </div>
+                <div class="mb-3 mt-3">
+                    <button type="button" class="btn btn-outline-primary" id="addGroceryItemBtn">+ Item</button>
+                    <button type="button" class="btn btn-outline-primary" id="minusGroceryItemBtn">- Item</button>
+                </div>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button type="submit" class="btn btn-primary" value="Upload">Submit Item(s)</button>
+                </div>
+            </form> 
+        </div>
+    </div>     
+    
+</div>
+
+<%- include('partials/groceries-footer') -%>

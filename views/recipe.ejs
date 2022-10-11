@@ -3,16 +3,16 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h1><%= recipe.recipeName %> - <%= recipe.type %></h1>
-      <img class="img-fluid img-thumbnail" src="<%= recipe.image %>" alt="recipe image">
+      <h1><%= recipe.recipeName %></h1>
+      <img class="img-fluid img-thumbnail" src="<%= recipe.image ? recipe.image : '' %>" alt="<%= recipe.recipeName %>">
     </div>
 
     <div class="col-6">
-      <h2>Info</h2>
-      <ul>
-        <li><strong>Prep Time:</strong> <%= recipe.prepTime %></li>
-        <li><strong>Bake/Cook Time:</strong> <%= recipe.cookTime %></li>
-        <li><strong>Total Time:</strong> <%= recipe.totalTime %></li>
+      <h1>Info</h1>
+      <ul class="mt-5 pt-5">
+        <li><strong>Prep Time:</strong> <%= recipe.prepTime ? recipe.prepTime : 'n/a' %></li>
+        <li><strong>Bake/Cook Time:</strong> <%= recipe.bakeOrCookTime ? recipe.bakeOrCookTime : 'n/a' %></li>
+        <li><strong>Total Time:</strong> <%= recipe.totalTime ? recipe.totalTime : 'n/a' %></li>
         <li><strong>Vegan:</strong> <%= recipe.vegan ? 'Yes' : 'No' %></li>
         <li><strong>Vegetarian:</strong> <%= recipe.vegetarian ? 'Yes' : 'No' %></li>
         <li><strong>Gluten-Free:</strong> <%= recipe.glutenFree ? 'Yes' : 'No' %></li>
@@ -21,13 +21,34 @@
   </div>
 </div>
 
+<div class="container">
+  <h2>Description</h2>
+  <p><%= recipe.description %></p>
+</div>
+
 <div class="container mt-3">
   <h2>Ingredients</h2>
       <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th class="text-center" scope="col">Amount</th>
+            <th class="text-center" scope="col">Unit</th>
+            <th class="text-center" scope="col">Name</th>
+            <th class="text-center" scope="col">Instructions</th>
+            <th class="text-center" scope="col">Add Item to Grocery List</th>
+          </tr>
         <tbody>
-          <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+          <% for (let i = 0; i < recipe.ingredientAmount.length; i++) { %>
             <tr>
-              <td><%= recipe.ingredients[i] %></td>
+              <td class="text-center align-middle"><%= recipe.ingredientAmount[i] ? recipe.ingredientAmount[i] : "-" %></td>
+              <td class="text-center align-middle"><%= recipe.ingredientUnit[i] ? recipe.ingredientUnit[i] : "-" %></td>
+              <td class="text-center align-middle"><%= recipe.ingredientName[i] ? recipe.ingredientName[i] : "-" %></td>
+              <td class="text-center align-middle"><%= recipe.ingredientInstructions[i] ? recipe.ingredientInstructions[i] : "-" %></td>
+              <td class="text-center align-middle">
+                <form class="text-center" action="/groceries/addIngredientName/<%= recipe.ingredientName[i] %>" method="POST">
+                  <button type="submit" class="btn btn-primary addIngredientBtn">+ item</button>
+                </form>
+              </td>
             </tr>
           <% } %>
         </tbody>
@@ -53,4 +74,4 @@
 </div>
 
 <%- include('partials/edit-recipe-modal') -%>
-<%- include('partials/every-other-page-footer') -%>
+<%- include('partials/profile-recipe-footer') -%>

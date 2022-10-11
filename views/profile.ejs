@@ -1,25 +1,37 @@
 <%- include('partials/every-other-page-header') -%>
 
-<div class="container">
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-3 mb-3">
+      <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
+      <p class="text-center h4 mt-3">You've shared over <strong><%- recipes.length %> recipe(s)!</strong> Thanks for being a great member of the community.</p>
+      <p class="text-center h4 mt-3">What are you going to create or share today?</p>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<!-- Add Recipe Container -->
+<div class="container border border-5">
   <div class="col-12">
-    <div class="mt-3">
-      <h1>Add a recipe</h1>
+    <div class="mt-3 mb-3">
+      <h3 class="h3">Add a recipe</h3>
       <form action="/post/createRecipe" enctype="multipart/form-data" method="POST">
 
           <!-- recipe name -->
           <div class="mb-3">
               <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
-              <input type="text" class="form-control" id="recipeName" name="recipeName">
+              <input type="text" class="form-control bg-light" id="recipeName" name="recipeName">
           </div>
 
           <!-- type, vegan, vegetarian, gluten-free -->
-          <!-- at medium width stack all the rows -->
-
           <div class="row mb-3">
+
             <!-- type -->
             <div class="col-3">
               <label for="type" class="form-label"><strong>Type</strong></label>
-              <select class="form-select" id="type" name="type">
+              <select class="form-select bg-light" id="type" name="type">
                 <option selected>Choose...</option>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Entrée">Entrée</option>
@@ -33,7 +45,7 @@
             <!-- vegan -->
             <div class="col-3">
               <label for="vegan" class="form-label"><strong>Vegan</strong></label>
-              <select class="form-select" id="vegan" name="vegan">
+              <select class="form-select bg-light" id="vegan" name="vegan">
                 <option selected>Choose...</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -43,7 +55,7 @@
             <!-- vegetarian -->
             <div class="col-3">
               <label for="vegetarian" class="form-label"><strong>Vegetarian</strong></label>
-              <select class="form-select" id="vegetarian" name="vegetarian">
+              <select class="form-select bg-light" id="vegetarian" name="vegetarian">
                 <option selected>Choose...</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -53,7 +65,7 @@
             <!-- gluten-free -->
             <div class="col-3">
               <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
-              <select class="form-select" id="glutenFree" name="glutenFree">
+              <select class="form-select bg-light" id="glutenFree" name="glutenFree">
                 <option selected>Choose...</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -64,45 +76,60 @@
           <!-- description -->
           <div class="mb-3">
             <label for="description" class="form-label"><strong>Description</strong></label>
-            <textarea type="text" class="form-control" id="description" name="description" rows="10"></textarea>
+            <textarea type="text" class="form-control bg-light" id="description" name="description" rows="10"></textarea>
           </div>
 
           <!-- prep, bake/cook, total time -->
           <div class="row mb-3 mt-3">
             <div class="col">
               <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
-              <input type="text" class="form-control" id="prepTime" name="prepTime">
+              <input type="text" class="form-control bg-light" id="prepTime" name="prepTime">
             </div>
             <div class="col">
-              <label for="cookTime" class="form-label"><strong>Cook Time</strong></label>
-              <input type="text" class="form-control" id="cookTime" name="cookTime">
+              <label for="bakeOrCookTime" class="form-label"><strong>Bake/Cook Time</strong></label>
+              <input type="text" class="form-control bg-light" id="bakeOrCookTime" name="bakeOrCookTime">
             </div>
             <div class="col">
               <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
-              <input type="text" class="form-control" id="totalTime" name="totalTime">
+              <input type="text" class="form-control bg-light" id="totalTime" name="totalTime">
             </div>
           </div>
 
           <!-- ingredients -->
-          <div class="mb-3">
-            <label for="name" class="form-label"><strong>Ingredients</strong></label>
-            <div class="ingredientList">
-              <div class="ingredientDiv mb-1">
-                <input type="text" name="ingredients" class="form-control">
-              </div>
+          <div class="row mb-3">
+            <!-- ingredient amount-->
+            <div class="ingredientAmountDiv mb-1 col-2">
+              <label for="ingredientAmount" class="form-label"><strong>Ingredient Amount</strong></label>
+              <input type="text" name="ingredientAmount" class="form-control bg-light" placeholder="ie: 1">
             </div>
-          </div>
-          <div class="mb-3">
-            <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
-            <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
+            <!-- ingredient unit -->
+            <div class="ingredientUnitDiv mb-1 col-2">
+              <label for="ingredientUnit" class="form-label"><strong>Ingredient Unit</strong></label>
+              <input type="text" name="ingredientUnit" class="form-control bg-light" placeholder="ie: large">              
+            </div>
+            <!-- ingredient name -->
+             <div class="ingredientNameDiv mb-1 col-3">
+              <label for="ingredientName" class="form-label"><strong>Ingredient Name</strong></label>
+              <input type="text" name="ingredientName" class="form-control bg-light" placeholder="ie: onion">              
+            </div>
+            <!-- ingredient instructions-->
+            <div class="ingredientInstructionsDiv mb-1 col-5">
+              <label for="ingredientInstructions" class="form-label"><strong>Ingredient Instructions</strong></label>
+              <input type="text" name="ingredientInstructions" class="form-control bg-light" placeholder="ie: diced">              
+            </div>
+            <!-- +/- buttons -->
+            <div class="mb-3 mt-3">
+              <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+              <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
+            </div>
           </div>
 
           <!-- directions -->
           <div class="mb-3">
-            <label for="name" class="form-label"><strong>Directions</strong></label>
+            <label for="directions" class="form-label"><strong>Directions</strong></label>
             <div class="directionList">
               <div class="directionDiv mb-1">
-                <input type="text" name="directions" class="form-control">
+                <input type="text" name="directions" class="form-control bg-light">
               </div>
             </div>
           </div>
@@ -114,31 +141,35 @@
           <!-- special notes -->
           <div class="mb-3">
             <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
-            <textarea type="text" class="form-control" id="specialNotes" name="specialNotes" rows="5"></textarea>
+            <textarea type="text" class="form-control bg-light" id="specialNotes" name="specialNotes" rows="5"></textarea>
           </div>
 
           <!-- image -->
           <div class="mb-3">
             <label for="imgUpload" class="form-label"><strong>Image</strong></label>
-            <input type="file" class="form-control" id="imageUpload" name="file">
+            <input type="file" class="form-control bg-light" id="imageUpload" name="file">
           </div>
 
           <!-- submit button -->
-          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-
+          <div class="d-grid gap-2 col-4 mx-auto">
+            <button type="submit" class="btn btn-primary" value="Upload">Submit Recipe</button>
+          </div>
+   
       </form>
     </div>
   </div>
 </div>
                                 
 <!-- breakfast recipe table -->
-<div class="container mt-5">
-  <h2>Breakfast Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 border border-1">
+  <h2 class="mt-3">Breakfast Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col">Prep Time</th>
         <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
@@ -150,15 +181,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Breakfast") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.type %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -170,13 +203,15 @@
 </div>
 
 <!-- entrée recipe table -->
-<div class="container mt-5">
-  <h2>Entrée Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 border border-1">
+  <h2 class="mt-3">Entrée Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Gluten-Free</th>
+        <th scope="col">Vegan</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col">Prep Time</th>
         <th scope="col">Bake/Cook Time</th>
         <th scope="col">Total Time</th>
@@ -188,15 +223,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Entrée") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.type %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -208,9 +245,9 @@
 </div>
 
 <!-- dessert recipe table -->
-<div class="container mt-5">
-  <h2>Dessert Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 border border-1">
+  <h2 class="mt-3">Dessert Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
@@ -228,17 +265,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Dessert") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -250,9 +287,9 @@
 </div>
 
 <!-- side recipes -->
-<div class="container mt-5">
-  <h2>Side Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 border border-1">
+  <h2 class="mt-3">Side Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
@@ -270,17 +307,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Side") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -292,9 +329,9 @@
 </div>
 
 <!-- snack recipes -->
-<div class="container mt-5">
-  <h2>Snack Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 border border-1">
+  <h2 class="mt-3">Snack Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
@@ -312,17 +349,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Snack") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -334,9 +371,9 @@
 </div>
 
 <!-- drink recipes -->
-<div class="container mt-5 mb-5">
-  <h2>Drink Recipes</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 mb-5 border border-1">
+  <h2 class="mt-3">Drink Recipes</h2>
+  <table class="table table-hover table-striped mt-3 mb-3">
     <thead>
       <tr>
         <th scope="col">Recipe Name</th>
@@ -354,17 +391,17 @@
       <tr class="table-active">
         <% recipes.forEach(recipe => { %>
           <% if (recipe.type === "Drink") { %>
-            <td><%= recipe.recipeName %></td>
-            <td><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td><%= recipe.prepTime %></td>
-            <td><%= recipe.cookTime %></td>
-            <td><%= recipe.totalTime %></td>
-            <td><a class="btn btn-primary" href="/post/<%= recipe._id %>">View</a></td>        
-            <td>
+            <td class="align-middle"><%= recipe.recipeName %></td>
+            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
+            <td class="align-middle"><%= recipe.prepTime %></td>
+            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
+            <td class="align-middle"><%= recipe.totalTime %></td>
+            <td class="align-middle"><a class="btn btn-outline-primary" href="/post/<%= recipe._id %>">View</a></td>        
+            <td class="align-middle">
               <form action="/post/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
               </form>
             </td>
           </tr>
@@ -375,4 +412,4 @@
   </table>
 </div>
 
-<%- include('partials/every-other-page-footer') -%>
+<%- include('partials/profile-recipe-footer') -%>
