@@ -1,5 +1,5 @@
 # Accelerated Results Fitness Cookbook # 
-A fully responsive and beautiful website to help with your nutrition. Users can login, add, edit, delete their own recipes. Users can add unique items to their grocery list, or add ingredient names from recipes.
+A fully responsive and beautiful website to help with your nutrition. Users can login, add, edit, delete their own recipes. Users can add unique items to their grocery list, or add ingredient names from recipes. More functionality coming listed under optimizations.
 
 ## Link to project 
 
