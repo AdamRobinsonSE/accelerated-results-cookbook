@@ -1,5 +1,5 @@
 # Accelerated Results Fitness Cookbook # 
-A fully responsive and beautiful webstie to help with your nutrition. 
+A fully responsive and beautiful website to help with your nutrition. 
 
 ## Link to project 
 
