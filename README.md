@@ -26,9 +26,9 @@ What is coming? - This is a long and ever growing list. Below isn't everything, 
 
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/addRecipe-readme.PNG)
 
-## Recipe Tables
+## Profile
 
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-table-readme-screenshots.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/profile-readme.PNG)
 
 ## Recipe Page
 
