@@ -24,7 +24,7 @@ What is coming? - This is a long and ever growing list. Below isn't everything, 
 
 ## Add Recipe
 
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/add-recipe-readme-screenshot.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/addRecipe-readme.PNG)
 
 ## Recipe Tables
 
