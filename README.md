@@ -20,24 +20,25 @@ What is coming? - This is a long and ever growing list. Below isn't everything, 
 5. An endless amount of styling to make the appearance more sleek, modern, and user friendly.
 
 ## Login Page
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/login-readme-screenshot.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index-readme.PNG)
+
+## Profile
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/profile-readme.PNG)
+
+## Specific Recipe Sections
+
+Users can view specific types, all, gluten-free, vegan, vegetarian. The styling is the same as the profile, 4 recipes per row.
+
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/profile-readme.PNG)
 
 ## Add Recipe
-
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/add-recipe-readme-screenshot.PNG)
-
-## Recipe Tables
-
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-table-readme-screenshots.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/addRecipe-readme.PNG)
 
 ## Recipe Page
-
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-readme-screenshot.PNG)
 
 ## Edit Recipe
-
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/edit-recipe-readme-screenshot.PNG)
 
 ## Grocery List
-
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/grocery-list-readme-screenshot.PNG)
