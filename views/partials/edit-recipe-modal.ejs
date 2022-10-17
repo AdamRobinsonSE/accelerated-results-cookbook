@@ -17,7 +17,7 @@
         </div>
         <div class="modal-body">
           <!-- form with method override to edit all the fields of the recipe -->
-            <form action="/post/editRecipe/<%= recipe._id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+            <form action="/recipes/editRecipe/<%= recipe._id %>?_method=PUT" enctype="multipart/form-data" method="POST">
                 <!-- recipe name -->
                 <div class="mb-3">
                     <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
@@ -38,6 +38,15 @@
                           <option value="Dessert">Dessert</option>
                       </select>
                   </div>
+                  <!-- gluten free -->
+                  <div class="col-3 form-group mb-3">
+                    <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
+                      <select class="form-select" id="glutenFree" name="glutenFree">
+                        <option selected><%= recipe.glutenFree %></option> 
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                  </div>
                   <!-- vegan -->
                   <div class="col-3 form-group mb-3">
                       <label for="vegan" class="form-label"><strong>Vegan</strong></label>
@@ -51,20 +60,11 @@
                   <div class="col-3 form-group mb-3">
                       <label for="vegetarian" class="form-label"><strong>Vegetarian</strong></label>
                       <select class="form-select" id="vegetarian" name="vegetarian">
-                        <option selected><%= recipe.vegan %></option> 
+                        <option selected><%= recipe.vegetarian %></option> 
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                       </select>
-                  </div>
-                  <!-- gluten-free -->
-                  <div class="col-3 form-group mb-3">
-                      <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
-                      <select class="form-select" id="glutenFree" name="glutenFree">
-                        <option selected><%= recipe.vegan %></option> 
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                      </select>
-                  </div>
+                  </div>      
               </div>
                 <!-- description -->
                 <div class="mb-3">

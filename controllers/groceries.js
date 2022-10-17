@@ -5,9 +5,9 @@ module.exports = {
     // Renders the grocery list page
     getGroceries: async (req, res) => {
       try {
-        const groceries = await Grocery.find({ user: req.user.id });
-        res.render("groceries.ejs", { 
-          groceries: groceries, 
+        const groceries = await Grocery.find(req.params.id);
+        res.render("groceries", { 
+          groceries: groceries,
           user: req.user 
         });
       } catch (err) {
@@ -15,10 +15,10 @@ module.exports = {
       }
     },
 
-    // Allows the creation of a new grocery item
+    // addItem adds each new grocery item to the database as individual objects
     addItem: async (req, res) => {
       try {
-        const groceries = await Grocery.create({
+          await Grocery.create({
           groceryItem: req.body.groceryItem,
           user: req.user
         });

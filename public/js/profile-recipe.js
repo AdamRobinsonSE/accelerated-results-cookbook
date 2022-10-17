@@ -7,7 +7,7 @@ function addIngredients(){
     // create the ingredientAmount input (ie: 1)
     let ingredientAmountInput = document.createElement('input')
     ingredientAmountInput.setAttribute('name', 'ingredientAmount');
-    ingredientAmountInput.setAttribute('class', 'form-control mt-1');
+    ingredientAmountInput.setAttribute('class', 'form-control mt-1 bg-light');
     ingredientAmountInput.setAttribute('placeholder', 'new amount');
     ingredientAmountInput.setAttribute('type', 'text');
     document.querySelector('.ingredientAmountDiv').appendChild(ingredientAmountInput);
@@ -15,7 +15,7 @@ function addIngredients(){
     // create the ingredientUnit input (ie: large)
     let ingredientUnitInput = document.createElement('input')
     ingredientUnitInput.setAttribute('name', 'ingredientUnit');
-    ingredientUnitInput.setAttribute('class', 'form-control mt-1');
+    ingredientUnitInput.setAttribute('class', 'form-control mt-1 bg-light');
     ingredientUnitInput.setAttribute('placeholder', 'new unit');
     ingredientUnitInput.setAttribute('type', 'text');
     document.querySelector('.ingredientUnitDiv').appendChild(ingredientUnitInput);
@@ -23,7 +23,7 @@ function addIngredients(){
     // create the ingredient type input (ie: onion)
     let ingredientNameInput = document.createElement('input');
     ingredientNameInput.setAttribute('name', 'ingredientName');
-    ingredientNameInput.setAttribute('class', 'form-control mt-1');
+    ingredientNameInput.setAttribute('class', 'form-control mt-1 bg-light');
     ingredientNameInput.setAttribute('placeholder', 'new name');
     ingredientNameInput.setAttribute('type', 'text');
     document.querySelector('.ingredientNameDiv').appendChild(ingredientNameInput);
@@ -31,7 +31,7 @@ function addIngredients(){
     // create the ingredient instructions input (ie: diced)
     let ingredientInstructionsInput = document.createElement('input');
     ingredientInstructionsInput.setAttribute('name', 'ingredientInstructions');
-    ingredientInstructionsInput.setAttribute('class', 'form-control mt-1');
+    ingredientInstructionsInput.setAttribute('class', 'form-control mt-1 bg-light');
     ingredientInstructionsInput.setAttribute('placeholder', 'new instructions');
     ingredientInstructionsInput.setAttribute('type', 'text');
     document.querySelector('.ingredientInstructionsDiv').appendChild(ingredientInstructionsInput);
@@ -58,7 +58,7 @@ function addDirections(){
     let input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('name', 'directions');
-    input.setAttribute('class', 'form-control mt-1');
+    input.setAttribute('class', 'form-control mt-1 bg-light');
     document.querySelector('.directionDiv').appendChild(input);
 };
 

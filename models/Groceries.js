@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const GroceriesSchema = new mongoose.Schema({
   groceryItem: {
     type: String,
-    required: true,
+    required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

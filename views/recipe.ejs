@@ -1,7 +1,7 @@
 <%- include('partials/profile-recipe-groceries-header') -%>
 
 <!-- recipe name, info container -->
-<div class="container">
+<div class="container mt-5 pt-5">
   <div class="row">
     <div class="col-6">
       <h1><%= recipe.recipeName %></h1>
@@ -14,9 +14,9 @@
         <li><strong>Prep Time:</strong> <%= recipe.prepTime ? recipe.prepTime : 'n/a' %></li>
         <li><strong>Bake/Cook Time:</strong> <%= recipe.bakeOrCookTime ? recipe.bakeOrCookTime : 'n/a' %></li>
         <li><strong>Total Time:</strong> <%= recipe.totalTime ? recipe.totalTime : 'n/a' %></li>
+        <li><strong>Gluten-Free:</strong> <%= recipe.glutenFree ? 'Yes' : 'No' %></li>
         <li><strong>Vegan:</strong> <%= recipe.vegan ? 'Yes' : 'No' %></li>
         <li><strong>Vegetarian:</strong> <%= recipe.vegetarian ? 'Yes' : 'No' %></li>
-        <li><strong>Gluten-Free:</strong> <%= recipe.glutenFree ? 'Yes' : 'No' %></li>
       </ul>
     </div>
   </div>
@@ -39,6 +39,7 @@
             <th class="text-center" scope="col">Instructions</th>
             <th class="text-center" scope="col">Add Item to Grocery List</th>
           </tr>
+        </thead>
         <tbody>
           <% for (let i = 0; i < recipe.ingredientAmount.length; i++) { %>
             <tr>
@@ -77,5 +78,8 @@
   <p><%= recipe.specialNotes %></p>
 </div>
 
-<%- include('partials/edit-recipe-modal') -%>
+<div class="container mb-5 pb-5">
+  <%- include('partials/edit-recipe-modal') -%>
+</div>
+
 <%- include('partials/profile-recipe-footer') -%>
