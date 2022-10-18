@@ -15,6 +15,9 @@ const groceriesRoutes = require("./routes/groceries");
 const breakfastRecipes = require("./routes/breakfast-recipes");
 const entreeRecipes = require("./routes/entree-recipes");
 const dessertRecipes = require("./routes/dessert-recipes");
+const sideRecipes = require("./routes/side-recipes");
+const snackRecipes = require("./routes/snack-recipes");
+const drinkRecipes = require("./routes/drink-recipes");
 
 
 //Use .env file in config folder
@@ -67,6 +70,9 @@ app.use("/profile", profileRoutes);
 app.use("/breakfast-recipes", breakfastRecipes);
 app.use("/entree-recipes", entreeRecipes);
 app.use("/dessert-recipes", dessertRecipes);
+app.use("/side-recipes", sideRecipes);
+app.use("/snack-recipes", snackRecipes);
+app.use("/drink-recipes", drinkRecipes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
