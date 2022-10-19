@@ -20,6 +20,7 @@ What is coming? - This is a long and ever growing list. Below isn't everything a
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
 7. I've enjoyed the attempts of the styling on my own, but I am not a designer. I am diving into some UI/UX courses that hope will give me some better insight on how to make things look great!
+8. Rebuild the entire thing with React - I am actually very much looking forward to that!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
