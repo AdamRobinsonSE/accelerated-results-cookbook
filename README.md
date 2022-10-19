@@ -19,7 +19,7 @@ What is coming? - This is a long and ever growing list. Below isn't everything a
 4. Fix some responsive queries on the edit modal.
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
-7. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
+7. I've enjoyed the attempts of the styling on me own, I am not a designer - but I am diving into some UI/UX courses that hope will give me some better insight on how to make things look great!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
