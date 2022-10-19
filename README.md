@@ -13,11 +13,9 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 What is coming? - This is a long and ever growing list. Below isn't everything, but it is the most important functionality I will implement before making it available to the public.
 
-1. Grocery List functionality, ability to add recipe ingredient names to the grocery list, or individual items. (DONE)
-2. Users can view other recipes added by other uses, and favorite those recipes to view with ease later.
-3. Users can comment on their own, or others recipes. 
-4. Users can favorite other recipes added by other users to easily view later
-5. An endless amount of styling to make the appearance more sleek, modern, and user friendly.
+1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
+2. Add ability to add multiple grocery items at once, and also be able to edit the list.
+3. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
