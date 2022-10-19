@@ -16,7 +16,8 @@ What is coming? - This is a long and ever growing list. Below isn't everything, 
 1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
 2. Add ability to add multiple grocery items at once, and also be able to edit the list.
 3. Add a boolean value to the groceries modal that will flip items from complete or not to eliminate some client side JS code.
-4. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
+4. Fix some responsive queries on the edit modal.
+5. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
