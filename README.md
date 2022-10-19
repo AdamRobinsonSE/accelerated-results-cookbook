@@ -11,13 +11,15 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Optimizations
 
-What is coming? - This is a long and ever growing list. Below isn't everything, but it is the most important functionality I will implement before making it available to the public.
+What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves a functional cookbook for an individual. 
 
 1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
 2. Add ability to add multiple grocery items at once, and also be able to edit the list.
 3. Add a boolean value to the groceries modal that will flip items from complete or not to eliminate some client side JS code.
 4. Fix some responsive queries on the edit modal.
-5. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
+5. Add calories per serving and a way to track your calories
+6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
+7. I've enjoyed the styling of the application on my own, I am diving into some UI/UX courses, and am looking forward to making this look much better!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
