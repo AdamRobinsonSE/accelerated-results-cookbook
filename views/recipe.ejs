@@ -2,15 +2,16 @@
 
 <!-- recipe name, info container -->
 <div class="container mt-5 bg-light border border-5 rounded-5">
-  <div class="row">
-    
-    <!-- recipe name & image  -->
+  <!-- recipe name & image  -->
+  <div>
     <div class="col-sm">
       <h1 class="text-center google-font display-3"><strong><%= recipe.recipeName %></strong></h1>
-      <img class="img-fluid img-thumbnail" src="<%= recipe.image ? recipe.image : '' %>" alt="<%= recipe.recipeName %>">
+      <img class="d-block mx-auto img-fluid img-thumbnail" src="<%= recipe.image ? recipe.image : '' %>" alt="<%= recipe.recipeName %>">
     </div>
+  </div>
 
-    <!-- recipe info -->
+  <!-- recipe info -->
+  <div class="">
     <div class="col-sm d-flex justify-content-center align-items-center">
       <ul class="list-group">
         <h1 class="text-center google-font display-4"><strong>Info</strong></h1>
@@ -22,7 +23,6 @@
         <li class="list-group-item"><strong>Vegetarian:</strong> <%= recipe.vegetarian ? 'Yes' : 'No' %></li>
       </ul>
     </div>
-
   </div>
 
   <!-- description -->
