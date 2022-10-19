@@ -39,11 +39,9 @@ Users can view specific types, all, gluten-free, vegan, vegetarian. The styling 
 ## Add Recipe
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/addRecipe.PNG)
 
-## Recipe Page
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/recipe-readme-screenshot.PNG)
-
 ## Edit Recipe
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/edit-recipe-readme-screenshot.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/edit-recipe1.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/edit-recipe2.PNG)
 
 ## Grocery List
-![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/grocery-list-readme-screenshot.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/grocery-list.PNG)
