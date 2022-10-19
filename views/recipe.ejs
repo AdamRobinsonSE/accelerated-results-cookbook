@@ -1,35 +1,39 @@
 <%- include('partials/profile-recipe-groceries-header') -%>
 
 <!-- recipe name, info container -->
-<div class="container mt-5 pt-5">
+<div class="container mt-5 bg-light border border-5 rounded-5">
   <div class="row">
-    <div class="col-6">
-      <h1><%= recipe.recipeName %></h1>
+    
+    <!-- recipe name & image  -->
+    <div class="col-sm">
+      <h1 class="text-center google-font display-3"><strong><%= recipe.recipeName %></strong></h1>
       <img class="img-fluid img-thumbnail" src="<%= recipe.image ? recipe.image : '' %>" alt="<%= recipe.recipeName %>">
     </div>
 
-    <div class="col-6">
-      <h1>Info</h1>
-      <ul class="mt-5 pt-5">
-        <li><strong>Prep Time:</strong> <%= recipe.prepTime ? recipe.prepTime : 'n/a' %></li>
-        <li><strong>Bake/Cook Time:</strong> <%= recipe.bakeOrCookTime ? recipe.bakeOrCookTime : 'n/a' %></li>
-        <li><strong>Total Time:</strong> <%= recipe.totalTime ? recipe.totalTime : 'n/a' %></li>
-        <li><strong>Gluten-Free:</strong> <%= recipe.glutenFree ? 'Yes' : 'No' %></li>
-        <li><strong>Vegan:</strong> <%= recipe.vegan ? 'Yes' : 'No' %></li>
-        <li><strong>Vegetarian:</strong> <%= recipe.vegetarian ? 'Yes' : 'No' %></li>
+    <!-- recipe info -->
+    <div class="col-sm d-flex justify-content-center align-items-center">
+      <ul class="list-group">
+        <h1 class="text-center google-font display-4"><strong>Info</strong></h1>
+        <li class="list-group-item"><i class="fa-regular fa-clock"></i> <strong>Prep Time:</strong> <%= recipe.prepTime ? recipe.prepTime : 'n/a' %> </li>
+        <li class="list-group-item"><i class="fa-regular fa-clock"></i> <strong>Bake/Cook Time:</strong> <%= recipe.bakeOrCookTime ? recipe.bakeOrCookTime : 'n/a' %></li>
+        <li class="list-group-item"><i class="fa-regular fa-clock"></i> <strong>Total Time:</strong> <%= recipe.totalTime ? recipe.totalTime : 'n/a' %></li>
+        <li class="list-group-item"><strong>Gluten-Free:</strong> <%= recipe.glutenFree ? 'Yes' : 'No' %></li>
+        <li class="list-group-item"><strong>Vegan:</strong> <%= recipe.vegan ? 'Yes' : 'No' %></li>
+        <li class="list-group-item"><strong>Vegetarian:</strong> <%= recipe.vegetarian ? 'Yes' : 'No' %></li>
       </ul>
     </div>
+
   </div>
-</div>
 
-<!-- recipe description container -->
-<div class="container">
-  <h2>Description</h2>
-  <p><%= recipe.description %></p>
-</div>
+  <!-- description -->
+  <div class="mt-5">
+    <h2 class="text-center google-font display-4"><strong>Description</strong></h2>
+    <p class="text-center"><%= recipe.description %></p>
+  </div>
 
-<div class="container mt-3">
-  <h2>Ingredients</h2>
+  <!-- ingredient table -->
+  <div class="mt-5">
+    <h2 class="text-center google-font display-4"><strong></strong></h2>
       <table class="table table-hover table-striped">
         <thead>
           <tr>
@@ -56,30 +60,33 @@
           <% } %>
         </tbody>
       </table>
-</div>
+  </div>
 
-<!-- recipe ingredient table container -->
-<div class="container mt-3">
-  <h2>Directions</h2>
-      <table class="table table-hover table-striped">
-        <tbody>
-          <% for (let i = 0; i < recipe.directions.length; i++) { %>
-            <tr>
-              <td><strong><%= i + 1 %>.</strong>   <%= recipe.directions[i] %></td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-</div>
+  <!-- direction table -->
+  <div class="container mt-5">
+    <h2 class="text-center google-font display-4"><strong>Directions</strong></h2>
+        <table class="table table-hover table-striped">
+          <tbody>
+            <% for (let i = 0; i < recipe.directions.length; i++) { %>
+              <tr>
+                <td><strong><%= i + 1 %>.</strong>   <%= recipe.directions[i] %></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+  </div>
 
-<!-- recipe special notes container -->
-<div class="container mb-3">
-  <h2>Special Notes</h2>
-  <p><%= recipe.specialNotes %></p>
-</div>
+  <!-- special notes -->
+  <div class="mt-5">
+    <h2 class="text-center google-font display-4"><strong>Special Notes</strong></h2>
+    <p class="text-center"><%= recipe.specialNotes %></p>
+  </div>
 
-<div class="container mb-5 pb-5">
-  <%- include('partials/edit-recipe-modal') -%>
+  <!-- edit button -->
+  <div class="mb-3 mt-3">
+    <%- include('partials/edit-recipe-modal') -%>
+  </div>
+
 </div>
 
 <%- include('partials/profile-recipe-footer') -%>

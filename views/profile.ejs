@@ -1,21 +1,19 @@
 <%- include('partials/profile-recipe-groceries-header') -%>
 
 <!-- user name and total ingredients container -->
-<div class="container mt-5 pt-5 text-light">
+<div class="container mt-5 text-light">
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-3 mb-3">
+    <div class="col-md-6 mt-3 mb-3 mx-auto">
       <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
       <p class="text-center h4 mt-3">You've shared over <strong><%- recipes.length %> recipe(s)!</strong> Thanks for being a great member of the community.</p>
       <p class="text-center h4 mt-3">What are you going to create today?</p>
     </div>
-    <div class="col-md-3"></div>
   </div>
 </div>
 
 <!-- breakfast card container -->
 <div class="container mt-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Breakfast Recipes</h3>
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Breakfast Recipes</h3>
   <div class="row">
 
     <!-- all breakfast card -->
@@ -67,7 +65,7 @@
 
 <!-- Entrée card container -->
 <div class="container mt-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Entrée Recipes</h3>
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Entrée Recipes</h3>
   <div class="row">
 
     <!-- all entrée card -->
@@ -119,7 +117,7 @@
 
 <!-- dessert card container -->
 <div class="container mt-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Dessert Recipes</h3>
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Dessert Recipes</h3>
   <div class="row">
 
     <!-- all dessert card -->
@@ -171,7 +169,7 @@
 
 <!-- sides card container -->
 <div class="container mt-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Side Recipes</h3>
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Side Recipes</h3>
   <div class="row">
 
      <!-- all sides card -->
@@ -223,7 +221,7 @@
 
 <!-- snacks card container -->
 <div class="container mt-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Snack Recipes</h3>
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Snack Recipes</h3>
   <div class="row">
 
     <!-- all snacks card -->
@@ -274,8 +272,8 @@
 </div>
 
 <!-- drinks card container -->
-<div class="container mt-5 pb-5 mb-5">
-  <h3 class="text-light border-bottom border-3 mb-3">Drink Recipes</h3>
+<div class="container mt-5">
+  <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Drink Recipes</h3>
   <div class="row">
 
     <!-- all drinks card -->
@@ -317,264 +315,12 @@
         <img src="/images/drinks/vegetarian.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-text"><strong>Vegetarian Drinks</strong></p>
-          <a href="/drink-recipes/vegetarian" class="btn btn-outline-primary">View Recipes</a>
+          <a href="/drink-recipes/drink-vegetarian" class="btn btn-outline-primary">View Recipes</a>
         </div>
       </div>
     </div>
 
   </div>
 </div>
-                                
-<!-- breakfast recipe table -->
-<!-- <div class="container mt-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Breakfast Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Breakfast") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- entrée recipe table -->
-<!-- <div class="container mt-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Entrée Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Entrée") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- dessert recipe table -->
-<!-- <div class="container mt-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Dessert Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Dessert") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- side recipes -->
-<!-- <div class="container mt-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Side Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Side") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- snack recipes -->
-<!-- <div class="container mt-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Snack Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Snack") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- drink recipes -->
-<!-- <div class="container mt-5 mb-5 border border-1 recipe-table-background">
-  <h2 class="mt-3">Drink Recipes</h2>
-  <table class="table table-hover table-striped mt-3 mb-3">
-    <thead>
-      <tr>
-        <th scope="col">Recipe Name</th>
-        <th scope="col">Gluten-Free</th>
-        <th scope="col">Vegan</th>
-        <th scope="col">Vegetarian</th>
-        <th scope="col">Prep Time</th>
-        <th scope="col">Bake/Cook Time</th>
-        <th scope="col">Total Time</th>
-        <th scope="col">View</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <% recipes.forEach(recipe => { %>
-          <% if (recipe.type === "Drink") { %>
-            <td class="align-middle"><%= recipe.recipeName %></td>
-            <td class="align-middle"><%= recipe.glutenFree ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegan ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.vegetarian ? 'Yes' : 'No' %></td>
-            <td class="align-middle"><%= recipe.prepTime %></td>
-            <td class="align-middle"><%= recipe.bakeOrCookTime %></td>
-            <td class="align-middle"><%= recipe.totalTime %></td>
-            <td class="align-middle"><a class="btn btn-outline-primary" href="/recipes/<%= recipe._id %>">View</a></td>        
-            <td class="align-middle">
-              <form action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% } %> 
-        <% }) %>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
 
 <%- include('partials/profile-recipe-footer') -%>
