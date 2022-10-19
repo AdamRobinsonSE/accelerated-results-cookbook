@@ -11,7 +11,7 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Optimizations
 
-What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves a functional cookbook for an individual. 
+What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
 
 1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
 2. Add ability to add multiple grocery items at once, and also be able to edit the list.
