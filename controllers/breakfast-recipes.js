@@ -6,7 +6,7 @@ module.exports = {
     // renders all breakfast recipes
   getAll: async (req, res) => {
     try {
-        const recipes = await Recipe.find({ user: req.user.id });
+        const recipes = await Recipe.find({ user: req.user.id });      
         res.render("breakfast-all", {
             recipes: recipes,
             user: req.user

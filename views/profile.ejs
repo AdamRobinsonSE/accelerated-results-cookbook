@@ -1,4 +1,4 @@
-<%- include('partials/profile-recipe-groceries-header') -%>
+<%- include('partials/master-header') -%>
 
 <!-- user name and total ingredients container -->
 <div class="container mt-5 text-light">
@@ -6,7 +6,7 @@
     <div class="col-md-6 mt-3 mb-3 mx-auto">
       <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
       <p class="text-center h4 mt-3">You've shared over <strong><%- recipes.length %> recipe(s)!</strong> Thanks for being a great member of the community.</p>
-      <p class="text-center h4 mt-3">What are you going to create today?</p>
+      <p class="text-center h4 mt-3">What are you going to share today?</p>
     </div>
   </div>
 </div>
@@ -323,4 +323,4 @@
   </div>
 </div>
 
-<%- include('partials/profile-recipe-footer') -%>
+<%- include('partials/profile-footer') -%>

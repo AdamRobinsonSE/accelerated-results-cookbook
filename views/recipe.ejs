@@ -1,4 +1,4 @@
-<%- include('partials/profile-recipe-groceries-header') -%>
+<%- include('partials/master-header') -%>
 
 <!-- recipe name, info container -->
 <div class="container mt-5 bg-light border border-5 rounded-5">
@@ -84,9 +84,16 @@
 
   <!-- edit button -->
   <div class="mb-3 mt-3">
-    <%- include('partials/edit-recipe-modal') -%>
+    <% if (recipe.user == user.id) { %>
+      <%- include('partials/edit-recipe-modal') -%>
+    <% } %>
   </div>
 
 </div>
 
-<%- include('partials/profile-recipe-footer') -%>
+<!-- brings in the edit functionality -->
+<% if (recipe.user == user.id) { %>
+  <script src="/js/add-recipe.js"></script> 
+<% } %>
+
+<%- include('partials/recipe-footer') -%>

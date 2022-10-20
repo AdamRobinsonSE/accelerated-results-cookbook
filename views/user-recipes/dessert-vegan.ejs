@@ -1,0 +1,43 @@
+<%- include('partials/master-header') -%>
+
+<!-- dessert card container -->
+<div class="container mt-5 pt-5">
+
+    <!-- links to the other dessert recipe types -->
+    <div class="mb-4">
+        <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Dessert - Vegan Recipes</h3>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link text-light" aria-current="page" href="/dessert-recipes/dessert-all">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/dessert-recipes/dessert-gluten-free">Gluten-Free</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/dessert-recipes/dessert-vegan">Vegan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/dessert-recipes/dessert-vegetarian">Vegetarian</a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- cards for ALL dessert recipes-->
+    <div class="row">
+      <% recipes.forEach(recipe => { %>
+          <% if (recipe.type === 'Dessert' && recipe.vegan === true) { %>
+              <div class="col-sm mb-3 d-flex justify-content-center">
+                  <div class="card text-center" style="width: 18rem;">
+                      <img src="<%= recipe.image %>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="card-title"><strong><%= recipe.recipeName %></strong></p>
+                          <a href="/recipes/<%= recipe._id %>" class="btn btn-outline-primary">View Recipe</a>
+                      </div>
+                  </div>
+              </div>
+          <% } %>
+      <% }) %>
+    </div>
+</div>
+
+<%- include('partials/profile-footer') -%>

@@ -5,6 +5,10 @@ const GroceriesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  onList: {
+    type: Boolean,
+    default: false
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

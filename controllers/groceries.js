@@ -52,6 +52,19 @@ module.exports = {
       }
     },
     
+    // Allows the update of a grocery item
+    updateGroceryList: async (req, res) => {
+      //find the grocery item by id, update the onList property to true, redirect to groceries page
+      try {
+        const groceries = await Grocery.findById(req.params.id);
+        groceries.onList = true;
+        await groceries.save();
+        res.redirect("/groceries");
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    
     // Allows the deletion of a grocery item
     deleteItem: async (req, res) => {
       try {
@@ -61,6 +74,6 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
-    }
+    },
 
 };

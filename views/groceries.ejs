@@ -1,4 +1,4 @@
-<%- include('partials/profile-recipe-groceries-header') -%>
+<%- include('partials/master-header') -%>
 
 <!-- user information container -->
 <div class="container mt-5 text-light">
@@ -11,6 +11,7 @@
   </div>
 
 <div class="container mt-5 bg-light border border-5 rounded-5">
+
     <!-- grocery list -->
     <div class="mt-5">
         <h2 class="text-center google-font display-4"><strong></strong></h2>
@@ -25,21 +26,25 @@
             <tbody>
               <% for (let i = 0; i < groceries.length; i++) { %>
                 <tr>
-                  <!-- display groceryItem -->
-                    <td class="text-center align-middle"><%= groceries[i].groceryItem %></td>
+                  <% if (groceries[i].user == user.id) { %>
+                    <td class="text-center"><%- groceries[i].groceryItem %></td>
                     <td class="text-center align-middle">
-                        <button type="button" class="btn btn-outline-primary markCompleteBtn">Mark Complete</button>
-                    </td>
+                      <form action="/groceries/updateGroceryList/<%- groceries[i].id %>?_method=PUT" method="POST">
+                        <button type="submit" class="btn btn-primary">Mark Complete</button>
+                      </form>
+                    </td> 
                     <td class="text-center align-middle">
-                        <form action="/groceries/deleteItem/<%= groceries[i]._id %>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
-                        </form>
-                    </td>
+                      <form action="/groceries/deleteItem/<%= groceries[i]._id %>?_method=DELETE" method="POST">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                  </td>
+                  <% } %>
                 </tr>
               <% } %>
             </tbody>
           </table>
     </div> 
+
     <!-- add new grocery items -->
     <div class="mt-5 mb-5">
         <div class="col-sm-6 mx-auto">
@@ -49,10 +54,6 @@
                     <label for="groceryItem" class="form-label"><strong>Item Name</strong></label>
                     <input type="text" name="groceryItem" class="form-control" placeholder="new item">
                 </div>
-                <!-- <div class="mb-3 mt-3">
-                    <button type="button" class="btn btn-outline-primary" id="addGroceryItemBtn">+ Item</button>
-                    <button type="button" class="btn btn-outline-primary" id="minusGroceryItemBtn">- Item</button>
-                </div> -->
                 <div class="d-grid gap-2 col-4 mx-auto mt-3">
                     <button type="submit" class="btn btn-primary">Submit Item(s)</button>
                 </div>

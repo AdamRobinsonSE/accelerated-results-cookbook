@@ -8,6 +8,7 @@ const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
+const path = require("path");
 const mainRoutes = require("./routes/main");
 const profileRoutes = require("./routes/profile");
 const recipeRoutes = require("./routes/recipes");
@@ -18,6 +19,7 @@ const dessertRecipes = require("./routes/dessert-recipes");
 const sideRecipes = require("./routes/side-recipes");
 const snackRecipes = require("./routes/snack-recipes");
 const drinkRecipes = require("./routes/drink-recipes");
+const feedRecipes = require("./routes/feed-recipes");
 
 
 //Use .env file in config folder
@@ -31,6 +33,9 @@ connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
+app.set('views', [path.join(__dirname, 'views'),
+                  path.join(__dirname, 'views/user-recipes/'),
+                  path.join(__dirname, 'views/feed/'),]);
 
 //Static Folder
 app.use(express.static("public"));
@@ -73,6 +78,7 @@ app.use("/dessert-recipes", dessertRecipes);
 app.use("/side-recipes", sideRecipes);
 app.use("/snack-recipes", snackRecipes);
 app.use("/drink-recipes", drinkRecipes);
+app.use("/feed-recipes", feedRecipes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
