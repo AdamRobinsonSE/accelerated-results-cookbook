@@ -11,7 +11,7 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Optimizations
 
-What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves a functional cookbook for an individual. 
+What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
 
 1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
 2. Add ability to add multiple grocery items at once, and also be able to edit the list.
@@ -20,6 +20,7 @@ What is coming? - This is a long and ever growing list. Below isn't everything a
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
 7. I've enjoyed the attempts of the styling on my own, but I am not a designer. I am diving into some UI/UX courses that hope will give me some better insight on how to make things look great!
+8. Rebuild the entire thing with React - I am actually very much looking forward to that!
 
 ## Login Page
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/index.PNG)
@@ -37,6 +38,7 @@ Users can view specific types, all, gluten-free, vegan, vegetarian. The styling 
 
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/specific-recipe-type1.PNG)
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/specific-recipe-type2.PNG)
+![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/specific-recipe-type3.PNG)
 
 ## Add Recipe
 ![alt tag](https://github.com/AdamRobinsonSE/accelerated-results-cookbook/blob/main/public/images/readme/addRecipe.PNG)
