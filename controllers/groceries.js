@@ -54,12 +54,13 @@ module.exports = {
     
     // Allows the update of a grocery item
     updateGroceryList: async (req, res) => {
-      //find the grocery item by id, update the onList property to true, redirect to groceries page
       try {
-        const groceries = await Grocery.findById(req.params.id);
-        groceries.onList = true;
-        await groceries.save();
-        res.redirect("/groceries");
+        const groceries = await Grocery.findOneAndUpdate({
+          _id: req.params.id,
+          user: req.user
+        },
+        { onList: true }
+        );
       } catch (err) {
         console.log(err);
       }
