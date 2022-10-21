@@ -1,5 +1,5 @@
 # Accelerated Results Fitness Cookbook # 
-A fully responsive and beautiful website to help with your nutrition. Users can login, add, edit, delete their own recipes. Users can add unique items to their grocery list, or add ingredient names from recipes. More functionality coming listed under optimizations.
+A fully responsive and beautiful website to help with your nutrition. Users can login, add, edit, delete their own recipes. Users can add unique items to their grocery list, or add ingredient names from recipes. Users can view other recipes added by other members of the community and favorite them for easy viewing later. More functionality coming listed under optimizations.
 
 ## Link to project 
 
@@ -13,9 +13,10 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
 
-1. Add a feed page, where users can see other recipes added by others. They'll be able to favorite them to easy viewing later.
-2. Add ability to add multiple grocery items at once, and also be able to edit the list.
+1. Add ability to add multiple grocery items at once
+2. Add ability to edit grocery list instead of just delete
 3. Add a boolean value to the groceries modal that will flip items from complete or not to eliminate some client side JS code.
+4. Add ability to delete favorites
 4. Fix some responsive queries on the edit modal.
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
