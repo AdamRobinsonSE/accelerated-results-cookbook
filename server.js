@@ -20,6 +20,7 @@ const sideRecipes = require("./routes/side-recipes");
 const snackRecipes = require("./routes/snack-recipes");
 const drinkRecipes = require("./routes/drink-recipes");
 const feedRecipes = require("./routes/feed-recipes");
+const favoriteRecipes = require("./routes/favorite-recipes");
 
 
 //Use .env file in config folder
@@ -35,7 +36,13 @@ connectDB();
 app.set("view engine", "ejs");
 app.set('views', [path.join(__dirname, 'views'),
                   path.join(__dirname, 'views/user-recipes/'),
-                  path.join(__dirname, 'views/feed/'),]);
+                  path.join(__dirname, 'views/feed/'),
+                  path.join(__dirname, 'views/favorite-recipes/'),
+                  path.join(__dirname, 'views/login-signup'),
+                  path.join(__dirname, 'views/add-recipe'),
+                  path.join(__dirname, 'views/profile'),
+                  path.join(__dirname, 'views/groceries'),
+                  path.join(__dirname, 'views/recipes'),]);
 
 //Static Folder
 app.use(express.static("public"));
@@ -79,6 +86,7 @@ app.use("/side-recipes", sideRecipes);
 app.use("/snack-recipes", snackRecipes);
 app.use("/drink-recipes", drinkRecipes);
 app.use("/feed-recipes", feedRecipes);
+app.use("/favorite-recipes", favoriteRecipes);
 
 //Server Running
 app.listen(process.env.PORT, () => {

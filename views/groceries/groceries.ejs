@@ -1,0 +1,64 @@
+<%- include('partials/master-header') -%>
+
+<!-- user information container -->
+<div class="container mt-5 text-light">
+    <div class="row">
+      <div class="col-md-6 mt-3 mb-3 mx-auto">
+        <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
+        <p class="text-center h4 mt-3">Here is your grocery list.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="container mt-5 bg-light border border-5 rounded-5">
+
+    <!-- grocery list -->
+    <div class="mt-5">
+        <h2 class="text-center google-font display-4"><strong></strong></h2>
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Grocery Item</th>
+                <th class="text-center" scope="col">Already in your cart?</th>
+                <th class="text-center" scope="col">Don't need it anymore?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < groceries.length; i++) { %>
+                <tr>
+                  <% if (groceries[i].user == user.id) { %>
+                    <td class="text-center align-middle"><%= groceries[i].groceryItem %></td>
+                    <td class="text-center align-middle">
+                        <button type="button" class="btn btn-outline-primary markCompleteBtn">Mark Complete</button>
+                    </td>
+                    <td class="text-center align-middle">
+                        <form action="/groceries/deleteItem/<%= groceries[i]._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                  <% } %>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+    </div> 
+
+    <!-- add new grocery items -->
+    <div class="mt-5 mb-5">
+        <div class="col-sm-6 mx-auto">
+            <h4 class="text-center">Add a new item</h4>
+            <form action="/groceries/addItem" method="POST">
+                <div class="groceryItemDiv mb-1">
+                    <label for="groceryItem" class="form-label"><strong>Item Name</strong></label>
+                    <input type="text" name="groceryItem" class="form-control" placeholder="new item">
+                </div>
+                <div class="d-grid gap-2 col-4 mx-auto mt-3">
+                    <button type="submit" class="btn btn-primary">Submit Item(s)</button>
+                </div>
+            </form> 
+        </div>
+    </div>     
+    
+</div>
+
+<%- include('partials/groceries-footer') -%>

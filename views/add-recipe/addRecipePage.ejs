@@ -1,0 +1,163 @@
+<%- include('partials/master-header') -%>
+
+<!-- user information container -->
+<div class="container mt-5 text-light">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-3 mb-3">
+      <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
+      <p class="text-center h4 mt-3">What are you going to create today?</p>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<!-- Add Recipe Container -->
+<div class="container border border-5 rounded-5 mb-5 add-recipe-container-background">
+  <div class="col-12">
+    <div class="mt-3 mb-3">
+      <h3 class="h3">Add a recipe</h3>
+      <form action="/recipes/createRecipe" enctype="multipart/form-data" method="POST">
+
+          <!-- recipe name -->
+          <div class="mb-3">
+              <label for="recipeName" class="form-label"><strong>Recipe Name</strong></label>
+              <input type="text" class="form-control bg-light" id="recipeName" name="recipeName">
+          </div>
+
+          <!-- type, vegan, vegetarian, gluten-free -->
+          <div class="row mb-3">
+
+            <!-- type -->
+            <div class="col-3">
+              <label for="type" class="form-label"><strong>Type</strong></label>
+              <select class="form-select bg-light" id="type" name="type">
+                <option selected>Choose...</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Side">Side</option>
+                <option value="Snack">Snack</option>
+                <option value="Drink">Drink</option>
+                <option value="Dessert">Dessert</option>
+              </select>
+            </div>
+
+            <!-- vegan -->
+            <div class="col-3">
+              <label for="vegan" class="form-label"><strong>Vegan</strong></label>
+              <select class="form-select bg-light" id="vegan" name="vegan">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+
+            <!-- vegetarian -->
+            <div class="col-3">
+              <label for="vegetarian" class="form-label"><strong>Vegetarian</strong></label>
+              <select class="form-select bg-light" id="vegetarian" name="vegetarian">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>            
+            </div>
+
+            <!-- gluten-free -->
+            <div class="col-3">
+              <label for="glutenFree" class="form-label"><strong>Gluten-Free</strong></label>
+              <select class="form-select bg-light" id="glutenFree" name="glutenFree">
+                <option selected>Choose...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+        
+          <!-- description -->
+          <div class="mb-3">
+            <label for="description" class="form-label"><strong>Description</strong></label>
+            <textarea type="text" class="form-control bg-light" id="description" name="description" rows="10"></textarea>
+          </div>
+
+          <!-- prep, bake/cook, total time -->
+          <div class="row mb-3 mt-3">
+            <div class="col">
+              <label for="prepTime" class="form-label"><strong>Prep Time</strong></label>
+              <input type="text" class="form-control bg-light" id="prepTime" name="prepTime">
+            </div>
+            <div class="col">
+              <label for="bakeOrCookTime" class="form-label"><strong>Bake/Cook Time</strong></label>
+              <input type="text" class="form-control bg-light" id="bakeOrCookTime" name="bakeOrCookTime">
+            </div>
+            <div class="col">
+              <label for="totalTime" class="form-label"><strong>Total Time</strong></label>
+              <input type="text" class="form-control bg-light" id="totalTime" name="totalTime">
+            </div>
+          </div>
+
+          <!-- ingredients -->
+          <div class="row mb-3">
+            <!-- ingredient amount-->
+            <div class="ingredientAmountDiv mb-1 col-2">
+              <label for="ingredientAmount" class="form-label"><strong>Ingredient Amount</strong></label>
+              <input type="text" name="ingredientAmount" class="form-control bg-light" placeholder="ie: 1">
+            </div>
+            <!-- ingredient unit -->
+            <div class="ingredientUnitDiv mb-1 col-2">
+              <label for="ingredientUnit" class="form-label"><strong>Ingredient Unit</strong></label>
+              <input type="text" name="ingredientUnit" class="form-control bg-light" placeholder="ie: large">              
+            </div>
+            <!-- ingredient name -->
+             <div class="ingredientNameDiv mb-1 col-3">
+              <label for="ingredientName" class="form-label"><strong>Ingredient Name</strong></label>
+              <input type="text" name="ingredientName" class="form-control bg-light" placeholder="ie: onion">              
+            </div>
+            <!-- ingredient instructions-->
+            <div class="ingredientInstructionsDiv mb-1 col-5">
+              <label for="ingredientInstructions" class="form-label"><strong>Ingredient Instructions</strong></label>
+              <input type="text" name="ingredientInstructions" class="form-control bg-light" placeholder="ie: diced">              
+            </div>
+            <!-- +/- buttons -->
+            <div class="mb-3 mt-3">
+              <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+              <button type="button" class="btn btn-outline-primary" id="minusIngredientsBtn">- Ingredient</button>
+            </div>
+          </div>
+
+          <!-- directions -->
+          <div class="mb-3">
+            <label for="directions" class="form-label"><strong>Directions</strong></label>
+            <div class="directionList">
+              <div class="directionDiv mb-1">
+                <input type="text" name="directions" class="form-control bg-light">
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-outline-primary" id="addDirectionsBtn">+ Direction</button>
+            <button type="button" class="btn btn-outline-primary" id="minusDirectionsBtn">- Direction</button>
+          </div>
+
+          <!-- special notes -->
+          <div class="mb-3">
+            <label for="specialNotes" class="form-label"><strong>Special Notes</strong></label>
+            <textarea type="text" class="form-control bg-light" id="specialNotes" name="specialNotes" rows="5"></textarea>
+          </div>
+
+          <!-- image -->
+          <div class="mb-3">
+            <label for="imgUpload" class="form-label"><strong>Image</strong></label>
+            <input type="file" class="form-control bg-light" id="imageUpload" name="file">
+          </div>
+
+          <!-- submit button -->
+          <div class="d-grid gap-2 col-4 mx-auto">
+            <button type="submit" class="btn btn-primary" value="Upload">Submit Recipe</button>
+          </div>
+   
+      </form>
+    </div>
+  </div>
+</div>
+                            
+<%- include('partials/add-recipe-footer') -%>

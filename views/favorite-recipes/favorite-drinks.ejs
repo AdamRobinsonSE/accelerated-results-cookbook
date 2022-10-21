@@ -1,0 +1,90 @@
+<%- include('partials/master-header') -%>
+
+<!-- user name -->
+<div class="container mt-5 text-light">
+    <div class="row">
+        <div class="col-md-6 mt-3 mb-3 mx-auto">
+            <h1 class="text-center h1">Hey there, <%- user.userName %>!</h1>
+            <p class="text-center h4 mt-3">Check out all the drink recipes that you've added to your favorites!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Drinks cards container -->
+<div class="container mt-3">
+
+    <!-- All Drinks Container -->
+    <div class="row mt-5">
+      <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">All Drinks</h3>
+      <% recipes.forEach(recipe => { %>
+          <% if (recipe.recipe.type === 'Drink') { %>
+              <div class="col-sm mb-3 d-flex justify-content-center">
+                  <div class="card text-center" style="width: 18rem;">
+                      <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="card-title"><strong><%= recipe.recipe.recipeName %></strong></p>
+                          <a href="/recipes/<%= recipe.recipe._id %>" class="btn btn-outline-primary">View Recipe</a>
+                      </div>
+                  </div>
+              </div>
+          <% } %>
+      <% }) %>
+    </div>
+
+    <!-- Gluten-Free Drinks Container -->
+    <div class="row mt-5">
+      <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Gluten-Free Drinks</h3>
+      <% recipes.forEach(recipe => { %>
+          <% if (recipe.recipe.type === 'Drink' && recipe.recipe.glutenFree === true) { %>
+              <div class="col-sm mb-3 d-flex justify-content-center">
+                  <div class="card text-center" style="width: 18rem;">
+                      <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="card-title"><strong><%= recipe.recipe.recipeName %></strong></p>
+                          <a href="/recipes/<%= recipe.recipe._id %>" class="btn btn-outline-primary">View Recipe</a>
+                      </div>
+                  </div>
+              </div>
+          <% } %>
+      <% }) %>
+    </div>
+
+    <!-- Vegan Drinks Container -->
+    <div class="row mt-5">
+      <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Vegan Drinks</h3>
+      <% recipes.forEach(recipe => { %>
+          <% if (recipe.recipe.type === 'Drink' && recipe.recipe.vegan === true) { %>
+              <div class="col-sm mb-3 d-flex justify-content-center">
+                  <div class="card text-center" style="width: 18rem;">
+                      <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="card-title"><strong><%= recipe.recipe.recipeName %></strong></p>
+                          <a href="/recipes/<%= recipe.recipe._id %>" class="btn btn-outline-primary">View Recipe</a>
+                      </div>
+                  </div>
+              </div>
+          <% } %>
+      <% }) %>
+    </div>
+
+    <!-- Vegetarian Drinks Container -->
+    <div class="row mt-5">
+      <h3 class="text-light border-bottom border-3 mb-3 google-font display-4">Vegetarian Drinks</h3>
+      <% recipes.forEach(recipe => { %>
+          <% if (recipe.recipe.type === 'Drink' && recipe.recipe.vegetarian === true) { %>
+              <div class="col-sm mb-3 d-flex justify-content-center">
+                  <div class="card text-center" style="width: 18rem;">
+                      <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="card-title"><strong><%= recipe.recipe.recipeName %></strong></p>
+                          <a href="/recipes/<%= recipe.recipe._id %>" class="btn btn-outline-primary">View Recipe</a>
+                      </div>
+                  </div>
+              </div>
+          <% } %>
+      <% }) %>
+    </div>
+
+</div>
+
+<%- include('partials/profile-footer') -%>
