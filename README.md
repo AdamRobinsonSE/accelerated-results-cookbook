@@ -9,6 +9,10 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 **Tech used:** HTML, CSS, JavaScript, Node, Express, MongoDB, EJS
 
+## Known Issues
+
+1. Fix some responsive queries on the edit modal.
+
 ## Optimizations
 
 What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
@@ -16,7 +20,7 @@ What is coming? - This is a long and ever growing list. Below isn't everything a
 1. Add ability to add multiple grocery items at once
 2. Add ability to edit grocery list instead of just update/delete
 4. Add ability to delete favorites
-4. Fix some responsive queries on the edit modal.
+
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
 7. I've enjoyed the attempts of the styling on my own, but I am not a designer. I am diving into some UI/UX courses that hope will give me some better insight on how to make things look great!
