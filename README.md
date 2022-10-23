@@ -14,8 +14,7 @@ With heroku stepping away from free hosting I need to do some research of where 
 What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
 
 1. Add ability to add multiple grocery items at once
-2. Add ability to edit grocery list instead of just delete
-3. Add a boolean value to the groceries modal that will flip items from complete or not to eliminate some client side JS code.
+2. Add ability to edit grocery list instead of just update/delete
 4. Add ability to delete favorites
 4. Fix some responsive queries on the edit modal.
 5. Add calories per serving and a way to track your calories
