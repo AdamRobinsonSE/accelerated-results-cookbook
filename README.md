@@ -15,7 +15,7 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Optimizations
 
-What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this. If nothing else, it serves as functional cookbook for an individual. 
+What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this.
 
 1. Add ability to add multiple grocery items at once
 2. Add ability to edit grocery list instead of just update/delete
