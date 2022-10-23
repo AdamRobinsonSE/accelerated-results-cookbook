@@ -24,16 +24,34 @@
               </tr>
             </thead>
             <tbody>
+              <!-- looping through the groceries and if onList is false, display ability to update it -->
               <% for (let i = 0; i < groceries.length; i++) { %>
                 <tr>
-                  <% if (groceries[i].user == user.id) { %>
+                  <% if (groceries[i].user == user.id && groceries[i].onList === false) { %>
                     <td class="text-center align-middle"><%= groceries[i].groceryItem %></td>
                     <td class="text-center align-middle">
-                        <button type="button" class="btn btn-outline-primary markCompleteBtn">Mark Complete</button>
+                      <form action="/groceries/updateGroceryList/<%= groceries[i]._id %>?_method=PUT" method="POST">
+                        <button type="submit" class="btn btn-outline-primary">Still need it!</button>
+                    </form>
                     </td>
                     <td class="text-center align-middle">
                         <form action="/groceries/deleteItem/<%= groceries[i]._id %>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                  <% } %>
+
+                  <!-- if onList is true -->
+                  <% if (groceries[i].user == user.id && groceries[i].onList === true) { %>
+                    <td class="text-center align-middle completed"><%= groceries[i].groceryItem %></td>
+                    <td class="text-center align-middle">
+                      <form action="/groceries/updateGroceryList/<%= groceries[i]._id %>?_method=PUT" method="POST">
+                        <button type="submit" class="btn btn-primary">It's in my cart!</button>
+                    </form>
+                    </td>
+                    <td class="text-center align-middle">
+                        <form action="/groceries/deleteItem/<%= groceries[i]._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
                   <% } %>

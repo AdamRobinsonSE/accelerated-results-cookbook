@@ -16,7 +16,7 @@ router.post("/addIngredientName/:ingredientName", groceriesController.addIngredi
 router.post("/deleteIngredientName/:ingredientName", groceriesController.deleteIngredientName);
 
 // router to mark the item in your cart already or purchased
-router.put("/updateGroceryList:/id", groceriesController.updateGroceryList);
+router.put("/updateGroceryList/:id", groceriesController.updateGroceryList);
 
 // router to delete an item from the grocery list
 router.delete("/deleteItem/:id", groceriesController.deleteItem);
