@@ -11,7 +11,7 @@ With heroku stepping away from free hosting I need to do some research of where 
 
 ## Known Issues
 
-1. Fix some responsive queries on the edit modal.
+1. Fix some responsive issues on the edit recipe modal
 
 ## Optimizations
 
