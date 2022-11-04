@@ -3,7 +3,9 @@ A fully responsive and beautiful website to help with your nutrition. Users can 
 
 ## Link to project 
 
-With heroku stepping away from free hosting I need to do some research of where I can host this...its coming soon!
+https://accelerated-results-cookbook.herokuapp.com/profile
+
+With heroku leaving free hosting my plan is to switch to something new this weekend
 
 ## How It's Made:
 
@@ -19,8 +21,8 @@ What is coming? - This is a long and ever growing list. Below isn't everything a
 
 1. Add ability to add multiple grocery items at once
 2. Add ability to edit grocery list instead of just update/delete
-4. Add ability to delete favorites
-
+3. Add ability to delete favorites
+4. A view all recipes link (for user recipes only)
 5. Add calories per serving and a way to track your calories
 6. Add a meal planning function where users can place recipes into timeslots/days and choose serving amount
 7. I've enjoyed the attempts of the styling on my own, but I am not a designer. I am diving into some UI/UX courses that hope will give me some better insight on how to make things look great!
