@@ -27,6 +27,8 @@ With heroku leaving free hosting my plan is to switch to something new before No
 
 ## Known Issues
 
+**please try to break things and let me know so I can go in and fix it!**
+
 1. Currently you could can add the same recipe to favorites an infinite # of times, don't get too crazy! Will have more time later this week to add a remove from favorites function.
 1. Fix some responsive issues on the edit recipe modal
 
