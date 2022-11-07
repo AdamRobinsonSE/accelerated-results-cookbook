@@ -4,7 +4,9 @@ A fully responsive and beautiful website to help with your nutrition. Users can 
 # Testing # 
 
 If you don't want to make an account you can use
+
 login : test@test.com 
+
 password: password
 
 This account has one recipe loaded in under breakfasts (Denver Breakfast Omlete)
