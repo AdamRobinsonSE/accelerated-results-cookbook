@@ -7,7 +7,7 @@ If you don't want to make an account you can use
 
 login : test@test.com 
 
-password: password
+pw: password
 
 This account has one recipe loaded in under breakfasts (Denver Breakfast Omlete)
 There is another account with a test recipe under desserts (Chocolate Chip Cookies)
