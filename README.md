@@ -34,6 +34,8 @@ With heroku leaving free hosting my plan is to switch to something new before No
 
 ## Optimizations
 
+**Idea for a new feature? please reach out, it may already be in the future plans!**
+
 What is coming? - This is a long and ever growing list. Below isn't everything as I am always thinking of ideas for improvement, but as of now I am comfortable releasing this.
 
 1. Add ability to add multiple grocery items at once
