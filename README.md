@@ -13,6 +13,8 @@ This account has zero recipes uploaded under it, try it out!
 
 There are two recipes uploaded under different accounts. One under breakfasts (Denver Breakfast Omelette), and one under Desserts (Chocolate Chip Cookies).
 
+There may be more recipes added by the time you test out the app, but those are just other users!
+
 ## Link to project 
 
 https://accelerated-results-cookbook.herokuapp.com/profile
