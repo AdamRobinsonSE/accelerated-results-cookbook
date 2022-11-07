@@ -73,7 +73,6 @@ module.exports = {
       // Delete post from db
       await Recipe.remove({ _id: req.params.id });
       console.log("Deleted Recipe");
-      alert("Recipe has been deleted!");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");
