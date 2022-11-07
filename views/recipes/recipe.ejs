@@ -90,18 +90,19 @@
     <p class="text-center"><%= recipe.specialNotes %></p>
   </div>
 
-  <!-- edit button -->
-  <div class="mb-3 mt-3">
+  <!-- edit button && delete button -->
+ 
+  <div>
     <% if (recipe.user == user.id) { %>
       <%- include('partials/edit-recipe-modal') -%>
+    <% } %>
+    <% if (recipe.user == user.id) { %>
+      <form class="text-center mb-3" action="/recipes/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
     <% } %>
   </div>
 
 </div>
-
-<!-- brings in the edit functionality -->
-<% if (recipe.user == user.id) { %>
-  <script src="/js/add-recipe.js"></script> 
-<% } %>
 
 <%- include('partials/recipe-footer') -%>

@@ -73,6 +73,7 @@ module.exports = {
       // Delete post from db
       await Recipe.remove({ _id: req.params.id });
       console.log("Deleted Recipe");
+      alert("Recipe has been deleted!");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");
@@ -129,6 +130,20 @@ module.exports = {
     }
   },
 
+  // Allows user to unfavorite the recipe
+  removeFavorite: async (req, res) => {
+    try {
+      await Favorite.findOneAndRemove({
+        user: req.user.id,
+        recipe: req.params.id,
+      });
+      console.log("Favorite has been removed!");
+      res.redirect(`/recipes/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  
   // Allows user to unfavorite the recipe
   getFavorites: async (req, res) => { 
     try {

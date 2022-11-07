@@ -19,6 +19,9 @@ router.post("/createRecipe", upload.single("file"), recipesController.createReci
 // this is the route for a user to favorite a recipe
 router.post("/favoriteRecipe/:id", recipesController.favoriteRecipe);
 
+// this is a route for a user to remove a recipe from their favorites
+router.put("/removeFavorite/:id", recipesController.removeFavorite);
+
 // this is the route for the form that allows you to delete a recipe
 router.delete("/deleteRecipe/:id", recipesController.deleteRecipe);
 
