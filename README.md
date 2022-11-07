@@ -19,7 +19,7 @@ There may be more recipes added by the time you test out the app, but those are 
 
 https://accelerated-results-cookbook.herokuapp.com/profile
 
-With heroku leaving free hosting my plan is to switch to something new this weekend
+With heroku leaving free hosting my plan is to switch to something new before November 28th
 
 ## How It's Made:
 
