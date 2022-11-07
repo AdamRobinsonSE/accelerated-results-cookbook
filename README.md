@@ -1,6 +1,16 @@
 # Accelerated Results Fitness Cookbook # 
 A fully responsive and beautiful website to help with your nutrition. Users can login, add, edit, delete their own recipes. Users can add unique items to their grocery list, or add ingredient names from recipes. Users can view other recipes added by other members of the community and favorite them for easy viewing later. More functionality coming listed under optimizations.
 
+# Testing # 
+
+If you don't want to make an account you can use
+login : test@test.com 
+password: password
+
+This account has one recipe loaded in under breakfasts (Denver Breakfast Omlete)
+There is another account with a test recipe under desserts (Chocolate Chip Cookies)
+Please feel free to jump in and if you break something reach out and I will fix it!
+
 ## Link to project 
 
 https://accelerated-results-cookbook.herokuapp.com/profile
