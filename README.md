@@ -5,13 +5,13 @@ A fully responsive and beautiful website to help with your nutrition. Users can 
 
 If you don't want to make an account you can use
 
-login : test@test.com 
+login : tester@tester.com 
 
 pw: password
 
-This account has one recipe loaded in under breakfasts (Denver Breakfast Omlete)
-There is another account with a test recipe under desserts (Chocolate Chip Cookies)
-Please feel free to jump in and if you break something reach out and I will fix it!
+This account has zero recipes uploaded under it, try it out!
+
+There are two recipes uploaded under different accounts. One under breakfasts (Denver Breakfast Omelette), and one under Desserts (Chocolate Chip Cookies).
 
 ## Link to project 
 
